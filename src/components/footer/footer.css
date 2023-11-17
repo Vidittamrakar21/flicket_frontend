@@ -1,0 +1,78 @@
+footer{
+    background-color: #2e2d40;
+    height: 400px;
+}
+
+#list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#list h3{
+    color: white;
+    margin-top: 35px;
+    font-weight: 300;
+}
+
+#list h3 span{
+    font-weight: 500;
+}
+
+#tut{
+    width: 150px;
+    height: 40px;
+    background-color: #EC5E71;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    margin-top: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+#flag{
+    height: 150px;
+    background-color: #373740;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.pocal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+.pocal h4{
+    
+    font-weight: 300;
+}
+
+#icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    left: 620px;
+    top: 40px;
+    width: 300px;
+    height: 60px;
+}
+
+#copy{
+    color: white;
+    font-weight: 300;
+    margin-top: 60px;
+    font-size: 12px;
+}
+@media only screen and (max-width: 600px){
+    footer{
+        display: none;
+    }
+}

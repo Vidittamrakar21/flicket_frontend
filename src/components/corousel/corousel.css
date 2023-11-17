@@ -1,0 +1,120 @@
+section{
+    margin-top: 15px;
+    height: 320px;
+    overflow: hidden;
+    display: flex;
+   display: flex;
+ 
+}
+
+.imgslide{
+    height: 300px;
+   min-width: 1500px;
+   animation: 6s sliderimages infinite ease-in-out;
+    margin-left: 15px;
+}
+
+.imgslide img{
+    height: 100%;
+    width: 100%;
+}
+
+#left{
+    height: 40px;
+    width: 50px;
+    background-color: rgba(64, 64, 64, 0.488);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0px;
+    top: 230px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    z-index: 5;
+}
+#right{
+    height: 40px;
+    width: 50px;
+    background-color: rgba(64, 64, 64, 0.488);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 0px;
+    top: 230px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+
+@keyframes sliderimages {
+    0%,1%,2%,3%,4%,5%,6%,7%,8%,9%,10%,11%{
+        transform: translateX(0);
+    }
+
+    20%{
+        transform: translateX(-100%);
+    }
+
+    40%{
+        transform: translateX(-200%);
+    }
+    60%{
+        transform: translateX(-300%);
+    }
+    80%{
+        transform: translateX(-400%);
+    }
+    95%{
+        transform: translateX(-400%);
+    }
+
+}
+
+
+@media only screen and (max-width: 600px){
+    section{
+        margin-top: 15px;
+        height: 220px;
+        overflow: hidden;
+        display: flex;
+       display: flex;
+     
+    }
+    
+    .imgslide{
+        height: 140px;
+       min-width: 340px;
+       animation: 6s sliderimages infinite ease-in-out;
+        margin-left: 15px;
+    }
+
+    #left{
+        height: 40px;
+        width: 50px;
+        background-color: rgba(64, 64, 64, 0.488);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 0px;
+        top: 160px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        z-index: 5;
+    }
+    #right{
+        height: 40px;
+        width: 50px;
+        background-color: rgba(64, 64, 64, 0.488);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0px;
+        top: 160px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+    }
+}

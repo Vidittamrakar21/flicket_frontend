@@ -1,0 +1,193 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap');
+
+
+nav{
+    display: flex;
+    user-select: none;
+    flex-direction: column;
+    height: 90px;
+   
+    
+}
+
+#light{
+    height: 60px;
+    background-color: #624F82;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#light input{
+    height: 36px;
+    width: 550px;
+    border-radius: 6px;
+    border: none;
+    position: relative;
+    right: 200px;
+}
+
+#dark{
+    height: 30px;
+    background-color: #3F3B6C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#dark h4{
+    color: white;
+    font-weight: 300;
+    padding: 10px;
+    position: relative;
+    right: 510px;
+    cursor: pointer;
+}
+
+
+#dark h4:hover{
+    color: white;
+    font-weight: 400;
+}
+
+
+
+#logo h1{
+    font-family: 'Kdam Thmor Pro', sans-serif;
+    color: white;
+    position: relative;
+    right: 230px;
+}
+
+#local{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+    left: 200px;
+    cursor: pointer;
+}
+
+#local h4{
+    color: white;
+    font-weight: 400;
+}
+
+#but{
+    height: 30px;
+    width: 80px;
+    color: white;
+    background-color: #F84464;
+    border: none;
+    border-radius: 7px;
+    position: relative;
+    left: 250px;
+    cursor: pointer;
+}
+
+#search{
+    display: none;
+}
+
+@media only screen and (max-width: 600px){
+    nav{
+        display: flex;
+        user-select: none;
+        flex-direction: column;
+        height: 90px;
+       
+        
+    }
+    
+    #light{
+        height: 60px;
+        background-color: #624F82;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+    
+    #light input{
+        height: 36px;
+        width: 550px;
+        border-radius: 6px;
+        border: none;
+        position: relative;
+        right: 200px;
+        display: none;
+    }
+    
+    #dark{
+        height: 30px;
+        background-color: #3F3B6C;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        display: none;
+    }
+    
+    #dark h4{
+        color: white;
+        font-weight: 300;
+        padding: 10px;
+        position: relative;
+        right: 510px;
+        cursor: pointer;
+    }
+    
+    
+    #dark h4:hover{
+        color: white;
+        font-weight: 400;
+    }
+    
+    
+    
+    #logo h1{
+        font-family: 'Kdam Thmor Pro', sans-serif;
+        color: white;
+        position: relative;
+        right: 60px;
+    }
+    
+    #local{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        position: relative;
+        left: 60px;
+        cursor: pointer;
+        display: none;
+    }
+    
+    #local h4{
+        color: white;
+        font-weight: 400;
+        display: none;
+    }
+    
+    #but{
+        height: 30px;
+        width: 80px;
+        color: white;
+        background-color: #F84464;
+        border: none;
+        border-radius: 7px;
+        position: relative;
+        left: 80px;
+        cursor: pointer;
+    }
+    
+    #search{
+        display: flex;
+        position: relative;
+        left: 60px;
+    }
+}
