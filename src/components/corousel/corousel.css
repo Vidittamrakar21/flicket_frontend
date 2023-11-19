@@ -76,7 +76,7 @@ section{
 @media only screen and (max-width: 600px){
     section{
         margin-top: 15px;
-        height: 220px;
+        height: 250px;
         overflow: hidden;
         display: flex;
        display: flex;
@@ -84,7 +84,7 @@ section{
     }
     
     .imgslide{
-        height: 140px;
+        height: 180px;
        min-width: 340px;
        animation: 6s sliderimages infinite ease-in-out;
         margin-left: 15px;
@@ -99,10 +99,10 @@ section{
         justify-content: center;
         position: absolute;
         left: 0px;
-        top: 160px;
+        top: 150px;
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
-        z-index: 5;
+        z-index: 4;
     }
     #right{
         height: 40px;
@@ -113,8 +113,9 @@ section{
         justify-content: center;
         position: absolute;
         right: 0px;
-        top: 160px;
+        top: 150px;
         border-top-left-radius: 8px;
         border-bottom-left-radius: 8px;
+        z-index: 4;
     }
 }

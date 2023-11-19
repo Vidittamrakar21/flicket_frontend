@@ -1,5 +1,5 @@
 #home{
-    min-height: 900px;
+    min-height: 1400px;
    
 }
 
@@ -31,11 +31,108 @@
     color: gray;
 }
 
+#reel{
+    height: 150px;
+    width: 1250px;
+    border-radius: 15px;
+    position: relative;
+    left: 130px;
+}
+
+#reel img{
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+  
+}
+
+#reel h1{
+    color: white;
+    font-weight: 500;
+    position: relative;
+    top: 90px;
+}
+#home hr{
+    margin-top: 20px;
+}
+#location{
+    height: 150px;
+    width: 600px;
+    /* border: 1px solid rgb(128, 127, 127); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    left: 150px;
+    margin-top: 45px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#location input{
+    height: 40px;
+    width: 500px;
+    border-radius: 8px;
+    border: 1px solid #624F82;
+}
+
+#detect{
+    height: 40px;
+    width: 500px;
+    border-radius: 8px;
+    border: 1px solid #624F82;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+#detect h4{
+    color: red;
+    font-weight: 400;
+    margin-left: 15px;
+}
+
+#place{
+    color: red;
+    font-weight: 500;
+    position: relative;
+    top: 75px;
+    right: 350px
+}
+
+#cit{
+    height: 250px;
+    width: 350px;
+    margin-top: 30px;
+    margin-left: -30px;
+}
+
+#cit img{
+    height: 100%;
+    width: 100%;
+}
+
+#moye{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
 @media only screen and (max-width: 600px){
+    
+    #home{
+        min-height: 1200px;
+        margin-top: 80px;
+       
+    }
+
     #main{
         display: flex;
       
-       min-height: 430px;
+       min-height: 360px;
         width: 340px;
         /* border: 1px solid black; */
         margin-left: 10px;
@@ -56,4 +153,94 @@
         top: 20px;
        }
     
+
+       #reel{
+        height: 100px;
+        width: 350px;
+        border-radius: 15px;
+        position: relative;
+        left: 3px;
+    }
+    
+    #reel img{
+        border-radius: 15px;
+        height: 100%;
+        width: 100%;
+      
+    }
+    
+    #reel h1{
+        color: white;
+        font-weight: 500;
+        position: relative;
+        top: 90px;
+    }
+
+    #location{
+        height: 150px;
+        width: 340px;
+        /* border: 1px solid rgb(128, 127, 127); */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        left: 0px;
+        margin-top: 45px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    #location input{
+        height: 40px;
+        width: 320px;
+        border-radius: 8px;
+        border: 1px solid #624F82;
+    }
+    
+    #detect{
+        height: 40px;
+        width: 320px;
+        border-radius: 8px;
+        border: 1px solid #624F82;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        margin-top: 15px;
+    }
+    
+    #detect h4{
+        color: red;
+        font-weight: 400;
+        margin-left: 15px;
+    }
+    
+    #place{
+        color: red;
+        font-weight: 500;
+        position: relative;
+        top: 35px;
+        right: 110px;
+    }
+    
+    #cit{
+        height: 250px;
+        width: 350px;
+        margin-top: 30px;
+        margin-left: -30px;
+        display: none;
+    }
+    
+    #cit img{
+        height: 100%;
+        width: 100%;
+    }
+    
+    #moye{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+    
+    }
 }

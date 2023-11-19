@@ -1,0 +1,43 @@
+#bottom{
+  display: none;
+}
+
+@media only screen and (max-width: 600px){
+    #bottom{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        height: 60px;
+        border-bottom: 2px solid crimson;
+        border-top: 0.5px solid rgb(171, 169, 169);
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        z-index: 5;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .rol{
+        height: 50px;
+        width: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .rol h4{
+        font-weight: 500;
+    }
+
+   .rol #ghar{
+        color: #3F3B6C;
+        position: relative;
+        margin-top: -15px;
+       
+    }
+}
