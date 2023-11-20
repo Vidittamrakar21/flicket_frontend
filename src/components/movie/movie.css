@@ -1,0 +1,186 @@
+#mov{
+    min-height: 1400px;
+    background-color: rgb(231, 231, 231);
+    
+}
+
+#filter{
+    height: 420px;
+    width: 310px;
+    /* border: 1px solid black; */
+    position: relative;
+    left: 50px;
+    top: 20px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    user-select: none;
+}
+
+#lang{
+    height: 90px;
+    width: 280px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+}
+
+.doo{
+    height: 30px;
+    width: 60px;
+    margin-top: 15px;
+   margin-left: 10px;
+   margin-right: 10px;
+   background-color: white;
+   border: none;
+   border: 1px solid rgb(135, 134, 134);
+   color: #fc3d60;
+   cursor: pointer;
+}
+
+#genre{
+    height: 200px;
+    width: 280px;
+    background-color: white;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+   
+    flex-direction: column;
+}
+
+#genbut{
+    height: 130px;
+    width: 270px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.boo{
+    height: 30px;
+    width: 70px;
+    margin-left: 15px;
+    background-color: white;
+    border: none;
+    border: 1px solid rgb(135, 134, 134);
+    color: #fc3d60;
+    cursor: pointer;
+   
+}
+
+#lang h4{
+    font-weight: 400;
+    color: #fc3d60;
+}
+
+#genre h4{
+    font-weight: 400;
+    color: #fc3d60;
+}
+
+.add{
+    background-color: #fc3d60;
+    color: white;
+    border: none;
+}
+
+#addfil{
+    display: none;
+}
+
+#filter h2{
+    color: rgb(56, 55, 55);
+}
+
+#display{
+    min-height: 500px;
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#play{
+    width: 1100px;
+    min-height: 600px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    /* border: 1px solid black; */
+    position: absolute;
+    left: 370px;
+    top: 425px;
+}
+
+#play h2{
+    color: rgb(56, 55, 55);
+}
+
+.sho{
+    display: none;
+}
+
+.gayab{
+    display: none;
+}
+@media only screen and (max-width: 600px){
+    #mov{
+        min-height: 1300px;
+        background-color: rgb(231, 231, 231);
+        margin-top: 80px;
+        
+    }
+    #filter{
+        display: none;
+    }
+
+    #addfil{
+        display: flex;
+        position: relative;
+        top: -40px;
+        left: 15px;
+        height: 30px;
+        width: 80px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 15px;
+        border: 1px solid gray;
+        color: #fc3d60;
+        user-select: none;
+    }
+
+    #display{
+        min-height: 300px;
+        width: 340px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    
+    #play{
+        width: 350px;
+        min-height: 400px;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        /* border: 1px solid black; */
+        position: absolute;
+        left: 5px;
+        top: 325px;
+    }
+    
+    .sho{
+        display: block;
+    }
+}

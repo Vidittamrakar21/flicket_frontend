@@ -26,9 +26,9 @@ function Navbar () {
                 <button id="but">Sign in</button>
             </nav>
             <nav id="dark">
+                <h4>Home</h4>
                 <h4>Movies</h4>
                 <h4>Profile</h4>
-                <h4>List Your Show</h4>
             </nav>
         </nav>
     )

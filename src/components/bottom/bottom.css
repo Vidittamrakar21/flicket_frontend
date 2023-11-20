@@ -9,7 +9,7 @@
         justify-content: center;
         flex-direction: row;
         height: 60px;
-        border-bottom: 2px solid crimson;
+        border-bottom: 1px solid crimson;
         border-top: 0.5px solid rgb(171, 169, 169);
         position: fixed;
         bottom: 0px;
@@ -17,6 +17,7 @@
         right: 0px;
         z-index: 5;
         background-color: rgb(255, 255, 255);
+        user-select: none;
     }
 
     .rol{

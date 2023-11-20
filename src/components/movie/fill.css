@@ -1,0 +1,54 @@
+
+
+.out{
+    display: none;
+
+}
+
+.gayab{
+    display: none;
+}
+
+@media only screen and (max-width: 600px){
+    .out{
+        display: flex;
+        position: fixed;
+        top: 0;
+       bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.61);
+        z-index: 6;
+        
+    
+    }
+
+    .gilter{
+        height: 520px;
+        width: 360px;
+       
+        position:  fixed;
+        z-index: 7;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        user-select: none;
+        background-color: rgb(227, 226, 226);
+        border-top-right-radius: 18px;
+        border-top-left-radius: 18px;
+    }
+
+    .gilter h2{
+        color: rgb(53, 53, 53);
+        margin-bottom: 20px;
+    }
+
+    .gayab{
+        display: none;
+    }
+    
+}
