@@ -1,12 +1,26 @@
 import './navbar.css';
-
+import { useNavigate } from 'react-router-dom';
 function Navbar () {
+
+    const navigate = useNavigate();
+
+    const gohome = () =>{
+        navigate('/')
+    }
+
+    const gomovie = () =>{
+        navigate('/movie')
+    }
+    const goprofile = () =>{
+        navigate('/profile')
+    }
+
     return(
         <nav>
 
             <nav id="light">
                 <div id= 'logo'>
-                    <h1>FLICKET</h1>
+                    <h1 onClick={gohome}>FLICKET</h1>
                 </div>
 
                 <input type="search" placeholder = "&nbsp;Search for Movies"/>
@@ -26,8 +40,8 @@ function Navbar () {
                 <button id="but">Sign in</button>
             </nav>
             <nav id="dark">
-                <h4>Home</h4>
-                <h4>Movies</h4>
+                <h4 onClick={gohome}>Home</h4>
+                <h4 onClick={gomovie}>Movies</h4>
                 <h4>Profile</h4>
             </nav>
         </nav>
