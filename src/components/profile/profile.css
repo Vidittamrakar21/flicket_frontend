@@ -1,0 +1,134 @@
+#profile{
+  background-color: rgb(231, 231, 231);
+  min-height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  user-select: none;
+
+}
+
+/* #dopro{
+    height: 700px;
+    width: 850px;
+    display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+user-select: none;
+
+} */
+
+#comp{
+    height: 530px;
+    width: 800px;
+    border: 1px solid rgb(151, 148, 148);
+    display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+margin-top: 35px;
+border-radius: 8px;
+}
+
+#grad{
+    height: 150px;
+    width: 800px;
+    /* border: 1px solid black; */
+    border-radius: 8px;
+    background: rgb(252,61,96);
+    background: linear-gradient(90deg, rgba(252,61,96,1) 0%, rgba(63,59,108,1) 35%, rgba(163,199,214,1) 100%);
+}
+
+#grad h2{
+color: white;
+margin-top: 65px;
+
+}
+
+.item{
+    border-radius: 10px;
+    height: 60px;
+    width: 600px;
+    border: 1px solid rgb(124, 122, 122);
+    margin-top: 20px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    
+}
+
+.item svg{
+    margin-left: 15px;
+}
+
+.item h3{
+    font-weight: 400;
+    color: black;
+    margin-left: 15px;
+}
+
+.item:hover{
+    background-color: rgba(255, 255, 255, 0.466);
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px){
+    #profile{
+        background-color: rgb(231, 231, 231);
+        min-height: 850px;
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    user-select: none;
+    }
+
+    /* #dopro{
+        height: 700px;
+        width: 350px;
+      
+    } */
+
+    #comp{
+        height: 530px;
+        width: 340px;
+        border: 1px solid rgb(151, 148, 148);
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 35px;
+    border-radius: 8px;
+    }
+    
+    #grad{
+        height: 90px;
+        width: 340px;
+        /* border: 1px solid black; */
+        border-radius: 8px;
+        background: rgb(252,61,96);
+        background: linear-gradient(90deg, rgba(252,61,96,1) 0%, rgba(63,59,108,1) 35%, rgba(163,199,214,1) 100%);
+    }
+    
+    #grad h2{
+    color: white;
+    margin-top: 25px;
+   
+    }
+    
+    .item{
+        border-radius: 10px;
+        height: 60px;
+        width: 280px;
+        border: 1px solid rgb(124, 122, 122);
+        margin-top: 20px;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        
+    }
+}

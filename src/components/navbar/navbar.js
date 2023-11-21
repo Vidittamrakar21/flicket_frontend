@@ -42,7 +42,7 @@ function Navbar () {
             <nav id="dark">
                 <h4 onClick={gohome}>Home</h4>
                 <h4 onClick={gomovie}>Movies</h4>
-                <h4>Profile</h4>
+                <h4 onClick={goprofile}>Profile</h4>
             </nav>
         </nav>
     )

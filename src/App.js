@@ -3,6 +3,7 @@ import Navbar from './components/navbar/navbar';
 import Home from './components/home/home';
 import Footer from './components/footer/footer';
 import Movie from './components/movie/movie';
+import Profile from './components/profile/profile';
 import Checkstate from './context/checkstate';
 import {
 	BrowserRouter as Router,
@@ -23,6 +24,7 @@ function App() {
       <Routes>
          <Route exact path='/' element={<><Home/> </>}></Route> 
          <Route exact path='/movie' element={<> <Movie/> </>}></Route> 
+         <Route exact path='/profile' element={<> <Profile/> </>}></Route> 
       
   
       </Routes>

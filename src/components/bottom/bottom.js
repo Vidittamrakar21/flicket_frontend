@@ -30,7 +30,7 @@ function Bottom (){
             </svg>
             <h4>Movies</h4>
            </div>
-           <div className="rol">
+           <div className="rol" onClick={goprofile}>
            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="#3F3B6C" class="bi bi-person-fill" viewBox="0 0 16 16">
             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
            </svg>
