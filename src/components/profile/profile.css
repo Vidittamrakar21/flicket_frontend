@@ -20,7 +20,7 @@ user-select: none;
 
 } */
 
-#comp{
+.comp{
     height: 530px;
     width: 800px;
     border: 1px solid rgb(151, 148, 148);
@@ -75,6 +75,137 @@ margin-top: 65px;
     cursor: pointer;
 }
 
+.edit{
+    height: 530px;
+    width: 800px;
+    border: 1px solid rgb(151, 148, 148);
+    display: flex;
+align-items: start;
+justify-content: start;
+flex-direction: column;
+margin-top: 35px;
+border-radius: 8px;
+}
+
+.notify{
+   min-height: 530px;
+    width: 800px;
+    border: 1px solid rgb(151, 148, 148);
+    display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+margin-top: 35px;
+border-radius: 8px;
+}
+
+.bk{
+    min-height: 530px;
+    width: 800px;
+    border: 1px solid rgb(151, 148, 148);
+    display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+margin-top: 35px;
+border-radius: 8px;
+}
+
+.notify h3{
+    font-weight: 400;
+}
+
+.kan{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 40px;
+    border: 1px solid rgb(124, 122, 122);
+    width: 700px;
+    background-color: white;
+    border-radius: 8px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+
+
+.edit h3{
+    margin-top: 20px;
+    margin-left: 30px;
+    font-weight: 500;
+}
+
+.kan h4{
+    font-weight: 400;
+}
+
+.kan input{
+    height: 35px;
+    width: 300px;
+    border-radius: 8px;
+    border: 1px solid rgb(124, 122, 122);
+}
+
+#save{
+    height: 35px;
+    width: 350px;
+    color: white;
+    border: none;
+    background: rgb(252,61,96);
+    background: linear-gradient(90deg, rgba(252,61,96,1) 0%, rgba(63,59,108,1) 35%, rgba(163,199,214,1) 100%);
+    font-size: 17px;
+    position: relative;
+    left: 230px;
+    top: 20px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.green{
+    color: rgb(6, 173, 6);
+}
+
+.gayab {
+    display: none;
+}
+
+#noter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 250px;
+    border-radius: 8px;
+    border: 1px solid rgb(124, 122, 122);
+    background-color: white;
+    margin-top: 15px;
+}
+
+#book{
+    border-radius: 8px;
+    border: 1px solid rgb(124, 122, 122);
+    background-color: white;
+    height: 60px;
+    width: 500px;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+#book h4{
+    font-weight: 400;
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+#book #bid{
+    font-weight: 400;
+    color: rgb(255, 0, 30);
+}
+
 @media only screen and (max-width: 600px){
     #profile{
         background-color: rgb(231, 231, 231);
@@ -92,7 +223,7 @@ margin-top: 65px;
       
     } */
 
-    #comp{
+    .comp{
         height: 530px;
         width: 340px;
         border: 1px solid rgb(151, 148, 148);
@@ -130,5 +261,109 @@ margin-top: 65px;
         align-items: center;
         justify-content: start;
         
+    }
+
+    .gayab {
+        display: none;
+    }
+
+    .edit{
+        height: 530px;
+        width: 350px;
+        border: 1px solid rgb(151, 148, 148);
+        display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+    margin-top: 35px;
+    border-radius: 8px;
+    }
+    .notify{
+        height: 530px;
+        width: 350px;
+        border: 1px solid rgb(151, 148, 148);
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 35px;
+    border-radius: 8px;
+    }
+
+    .bk{
+        height: 530px;
+        width: 350px;
+        border: 1px solid rgb(151, 148, 148);
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 35px;
+    border-radius: 8px;
+    }
+    .kan{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 40px;
+        border: 1px solid rgb(124, 122, 122);
+        width: 340px;
+        background-color: white;
+        border-radius: 8px;
+        margin-left: 5px;
+        margin-top: 20px;
+    }
+    
+    
+    
+    .edit h3{
+        margin-top: 20px;
+        margin-left: 20px;
+        font-weight: 500;
+    }
+    
+    .kan h4{
+        font-weight: 400;
+    }
+    
+    .kan input{
+        height: 35px;
+        width: 340px;
+        border-radius: 8px;
+        border: 1px solid rgb(124, 122, 122);
+    }
+    
+    #save{
+        height: 35px;
+        width: 300px;
+        color: white;
+        border: none;
+        background: rgb(252,61,96);
+        background: linear-gradient(90deg, rgba(252,61,96,1) 0%, rgba(63,59,108,1) 35%, rgba(163,199,214,1) 100%);
+        font-size: 17px;
+        position: relative;
+        left: 25px;
+        top: 20px;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    #book{
+        border-radius: 8px;
+        border: 1px solid rgb(124, 122, 122);
+        background-color: white;
+        height: 60px;
+        width: 320px;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    
+    #book h4{
+        font-weight: 400;
+        margin-left: 15px;
+        margin-top: 5px;
     }
 }

@@ -1,15 +1,51 @@
 import './profile.css';
 import Bottom from '../bottom/bottom';
+import { useState } from 'react';
 
 function Profile(){
+
+    const [pro, openpro] = useState(true)
+    const [edit ,openedit ] = useState(false);
+    const [notif ,openotify ] = useState(false);
+    const [tick ,opentick ] = useState(false);
+
+
+    const openeditor = () =>{
+        openedit(true);
+        openpro(false);
+        openotify(false);
+    }
+    const opennoti = () =>{
+        openedit(false);
+        openpro(false);
+        openotify(true);
+    }
+
+    const openticket = () =>{
+        openedit(false);
+        openpro(false);
+        openotify(false);
+        opentick(true);
+    }
+
+    const openhelp = () =>{
+        alert("This feature is currently under poduction. We are sorry for the inconvinience. For more information kindly contact with us. ")
+    }
+
+    const reset = ()=>{
+        openpro(true)
+        openedit(false)
+    }
+
+
     return(
         <div id='profile'>
            
            <div id="grad">
                 <h2>Hi, Guest</h2>
             </div>
-            <div id="comp">
-                <div className="item">
+            <div className={!pro?"gayab": "comp"}>
+                <div className="item" onClick={openeditor}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="gray" class="bi bi-person" viewBox="0 0 16 16">
                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
                  </svg>
@@ -17,7 +53,7 @@ function Profile(){
                  <h3>Edit Profile</h3>
                 </div>
 
-                <div className="item">
+                <div className="item" onClick={opennoti}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="gray" class="bi bi-bell" viewBox="0 0 16 16">
                 <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/>
                 </svg>
@@ -25,7 +61,7 @@ function Profile(){
                 <h3>Notificatons</h3>
                 </div>
 
-                <div className="item">
+                <div className="item" onClick={openticket}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="gray" class="bi bi-ticket-perforated" viewBox="0 0 16 16">
                     <path d="M4 4.85v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Zm-7 1.8v.9h1v-.9H4Zm7 0v.9h1v-.9h-1Z"/>
                   <path d="M1.5 3A1.5 1.5 0 0 0 0 4.5V6a.5.5 0 0 0 .5.5 1.5 1.5 0 1 1 0 3 .5.5 0 0 0-.5.5v1.5A1.5 1.5 0 0 0 1.5 13h13a1.5 1.5 0 0 0 1.5-1.5V10a.5.5 0 0 0-.5-.5 1.5 1.5 0 0 1 0-3A.5.5 0 0 0 16 6V4.5A1.5 1.5 0 0 0 14.5 3h-13ZM1 4.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v1.05a2.5 2.5 0 0 0 0 4.9v1.05a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-1.05a2.5 2.5 0 0 0 0-4.9V4.5Z"/>
@@ -34,7 +70,7 @@ function Profile(){
                   <h3> Your Bookings</h3>
                 </div>
 
-                <div className="item">
+                <div className="item" onClick={openhelp}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="gray" class="bi bi-info-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
@@ -58,6 +94,52 @@ function Profile(){
                    </svg>
 
                    <h3>Sign Out</h3>
+                </div>
+            </div>
+
+            <div className={edit?"edit": "gayab"}>
+                    <h3>Account Details</h3>
+                    <div className="kan">
+                        <h4>Email Address</h4>
+                        <h4 className='green'>vidi.tamrakar16@gmail.com</h4>
+                    
+                    </div>
+                    <div className="kan">
+                        <input type="email" placeholder='&nbsp;Edit Email' />
+                    </div>
+                    <div className="kan">
+                        <h4>Mobile Number</h4>
+                        <h4 className='green'>+91 9365448902</h4>
+                    </div>
+                    <div className="kan">
+                        <input type="number" placeholder='&nbsp;Edit Mo. Number'/>
+                    </div>
+                    <h3>Personal Details</h3>
+                    <div className="kan">
+                        <h4>Name</h4>
+                        <input type="text" placeholder='&nbsp;Enter Name' />
+                    </div>
+                    <div className="kan">
+                        <h4>City</h4>
+                        <input type="text" placeholder='&nbsp;Enter Your City' />
+                    </div>
+                    <button id='save' onClick={reset}>Save Changes</button>
+            </div>
+
+            <div className={notif?"notify": "gayab"}>
+                {/* <h3>No Notifications.</h3> */}
+
+                <div id="noter">
+                    hi vidit , welcome to Flicket !
+                </div>
+            </div>
+
+            <div className={tick?"bk": "gayab"}>
+                {/* <h3>No Bookings Yet.</h3> */}
+
+                <div id="book">
+                   <h4 id="bid">Booking Id - 88g5kedi48781</h4>
+                   <h4>Date - 23-11-2023</h4>
                 </div>
             </div>
            
