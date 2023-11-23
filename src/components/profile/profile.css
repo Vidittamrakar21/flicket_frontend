@@ -111,6 +111,18 @@ margin-top: 35px;
 border-radius: 8px;
 }
 
+.acc{
+    min-height: 530px;
+    width: 800px;
+    border: 1px solid rgb(151, 148, 148);
+    display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+margin-top: 35px;
+border-radius: 8px;
+}
+
 .notify h3{
     font-weight: 400;
 }
@@ -206,6 +218,36 @@ border-radius: 8px;
     color: rgb(255, 0, 30);
 }
 
+
+#troll{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 600px;
+    border: 1px solid rgb(124, 122, 122);
+   
+}
+
+#troll h4{
+    margin-right: 30px;
+    margin-top: -13px;
+}
+
+#della{
+    color: red;
+}
+#on{
+    cursor: pointer;
+    user-select: none;
+    transition: 2s ease-in-out;
+}
+
+#off{
+    cursor: pointer;
+    user-select: none;
+    transition: 2s ease-in-out;
+}
 @media only screen and (max-width: 600px){
     #profile{
         background-color: rgb(231, 231, 231);
@@ -301,6 +343,18 @@ border-radius: 8px;
     margin-top: 35px;
     border-radius: 8px;
     }
+
+    .acc{
+        height: 530px;
+        width: 350px;
+        border: 1px solid rgb(151, 148, 148);
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 35px;
+    border-radius: 8px;
+    }
     .kan{
         display: flex;
         align-items: center;
@@ -365,5 +419,20 @@ border-radius: 8px;
         font-weight: 400;
         margin-left: 15px;
         margin-top: 5px;
+    }
+
+    #troll{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        width: 280px;
+        border: 1px solid rgb(124, 122, 122);
+       
+    }
+    
+    #troll h4{
+        margin-right: 30px;
+        margin-top: -13px;
     }
 }
