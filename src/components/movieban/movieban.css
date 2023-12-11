@@ -1,0 +1,452 @@
+#ban{
+    min-height: 1900px;
+    user-select: none;
+}
+
+#bigimg{
+    width: 100%;
+    height: 450px;
+    filter: brightness(0.4);
+}
+
+#bigimg img{
+    height: 100%;
+    width: 100%;
+}
+
+#smallimg{
+    height: 370px;
+    width: 250px;
+    border-radius: 10px;
+    position: absolute;
+    top: 130px;
+    left: 150px;
+
+}
+
+#smallimg img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#mname{
+    color: white;
+    position: absolute;
+    top: 170px;
+    left: 430px;
+    font-weight: 700;
+}
+
+#mrate{
+    color: white;
+    position: absolute;
+    top: 220px;
+    left: 440px;
+    font-weight: 500;
+}
+
+#mvote{
+    color: white;
+    position: absolute;
+    top: 225px;
+    left: 520px;
+    font-weight: 400;
+}
+
+#rnow{
+    height: 80px;
+    width: 470px;
+    background-color: #333333;
+    color: rgb(225, 224, 224);
+    border-radius: 10px;
+    position: absolute;
+    top: 300px;
+    left: 430px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#mat{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+}
+#mat h3{
+    font-weight: 400;
+}
+#rnow button{
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    border: none;
+   cursor: pointer;
+   font-size: 16px;
+}
+
+#line{
+    color: white;
+    position: absolute;
+    top: 400px;
+    left: 450px;
+    font-weight: 300;
+}
+
+#btt{
+    background-color: #F84464;
+    position: absolute;
+    top: 450px;
+    left: 450px;
+    border: none;
+    height: 40px;
+    width: 190px;
+    font-size: 16px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#abt{
+    position: absolute;
+    left: 150px;
+    top: 570px;
+}
+
+#bbt{
+    position: absolute;
+    top: 610px;
+    left: 150px;
+}
+
+#cst{
+    position: absolute;
+    top: 650px;
+    left: 150px;
+    min-height: 100px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#cst h3{
+    font-weight: 400;
+}
+
+#rev{
+    position: absolute;
+    top: 850px;
+    left: 150px;
+}
+
+#revbox{
+    width: 350px;
+    min-height: 200px;
+    border: 1px solid gray;
+    position: absolute;
+    top: 890px;
+    left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 6px;
+
+}
+
+#revbox1{
+    width: 350px;
+    min-height: 200px;
+    border: 1px solid gray;
+    position: absolute;
+    top: 1150px;
+    left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 6px;
+}
+#revbox2{
+    width: 350px;
+    min-height: 200px;
+    border: 1px solid gray;
+    position: absolute;
+    top: 1410px;
+    left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 6px;
+
+}
+#revbox3{
+    width: 350px;
+    min-height: 200px;
+    border: 1px solid gray;
+    position: absolute;
+    top: 1670px;
+    left: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 6px;
+}
+
+#ee{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    width: 320px;
+}
+
+#uu{
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+#uu img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+#revbox p{
+    padding: 20px;
+}
+#revbox1 p{
+    padding: 20px;
+}
+#revbox2 p{
+    padding: 20px;
+}
+#revbox3 p{
+    padding: 20px;
+}
+
+@media only screen and (max-width: 600px){
+    #ban{
+        min-height: 1900px;
+        user-select: none;
+    }
+    
+    #bigimg{
+        min-width: 350;
+        height: 280px;
+        filter: brightness(0.4);
+    }
+    
+    #bigimg img{
+        height: 100%;
+        width: 100%;
+    }
+    
+    #smallimg{
+        height: 170px;
+        width: 110px;
+        border-radius: 10px;
+        position: absolute;
+        top: 150px;
+        left: 15px;
+    
+    }
+    
+    #smallimg img{
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+    }
+    
+    #mname{
+        color: white;
+        position: absolute;
+        top: 70px;
+        left: 150px;
+        font-weight: 700;
+    }
+    
+    #mrate{
+        color: white;
+        position: absolute;
+        top: 130px;
+        left: 150px;
+        font-weight: 500;
+    }
+    
+    #mvote{
+        color: white;
+        position: absolute;
+        top: 160px;
+        left: 150px;
+        font-weight: 400;
+    }
+    
+    #rnow{
+        height: 80px;
+        width: 270px;
+        background-color: #333333;
+        color: rgb(225, 224, 224);
+        border-radius: 10px;
+        position: absolute;
+        top: 320px;
+        left: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        display: none;
+        
+    }
+    
+    #mat{
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        padding: 15px;
+    }
+    #mat h3{
+        font-weight: 400;
+    }
+    #rnow button{
+        height: 40px;
+        width: 90px;
+        border-radius: 8px;
+        border: none;
+       cursor: pointer;
+       font-size: 16px;
+    }
+    
+    #line{
+        color: white;
+        position: absolute;
+        top: 200px;
+        left: 150px;
+        font-weight: 300;
+    }
+    
+    #btt{
+        background-color: #F84464;
+        position: absolute;
+        top: 230px;
+        left: 150px;
+        border: none;
+        height: 40px;
+        width: 190px;
+        font-size: 16px;
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    
+    #abt{
+        position: absolute;
+        left: 30px;
+        top: 350px;
+    }
+    
+    #bbt{
+        position: absolute;
+        top: 380px;
+        left: 30px;
+    }
+    
+    #cst{
+        position: absolute;
+        top: 450px;
+        left: 30px;
+        min-height: 100px;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #cst h3{
+        font-weight: 400;
+    }
+    
+    #rev{
+        position: absolute;
+        top: 590px;
+        left: 30px;
+    }
+    
+    #revbox{
+        width: 280px;
+        min-height: 200px;
+        border: 1px solid gray;
+        position: absolute;
+        top: 650px;
+        left: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 6px;
+    
+    }
+    
+    #revbox1{
+        width: 280px;
+        min-height: 200px;
+        border: 1px solid gray;
+        position: absolute;
+        top: 950px;
+        left: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 6px;
+    }
+    #revbox2{
+        width: 280px;
+        min-height: 200px;
+        border: 1px solid gray;
+        position: absolute;
+        top: 1250px;
+        left: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 6px;
+    
+    }
+    #revbox3{
+        width: 280px;
+        min-height: 200px;
+        border: 1px solid gray;
+        position: absolute;
+        top: 1550px;
+        left: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 6px;
+    }
+    
+    #ee{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 50px;
+        width: 250px;
+    }
+    
+    #uu{
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+    }
+}
