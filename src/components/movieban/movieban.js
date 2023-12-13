@@ -1,7 +1,13 @@
 import './movieban.css'
 import Bottom from '../bottom/bottom';
+import { useNavigate } from 'react-router-dom';
 
 function Movieban(){
+    const navigation = useNavigate();
+
+    const handleclick = () =>{
+        navigation('/cine')
+    }
     return(
         <div id="ban" >
             <div id="bigimg">
@@ -25,7 +31,7 @@ function Movieban(){
             </div>
 
             <h3 id="line"><span>3h 21m</span> . Action</h3>
-            <button id='btt'>Book Tickets</button>
+            <button id='btt' onClick={handleclick}>Book Tickets</button>
             <h2 id="abt">About The Movie</h2>
             <p id='bbt'>Tiger and Zoya are back - to save the country and their family. This time it`s personal!</p>
              <div id="cst">

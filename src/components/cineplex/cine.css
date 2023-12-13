@@ -1,0 +1,351 @@
+#cine{
+    min-height: 800px;
+    background-color: rgb(234, 233, 233);
+    user-select: none;
+}
+
+#mbar{
+    height: 120px;
+    width: 100%;
+    background-color: #624F82;
+    color: white;
+}
+
+#mbar h1{
+    position: absolute;
+    top: 130px;
+    left: 120px;
+}
+
+#pfill{
+    height: 60px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+#dater{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50px;
+    width: 200px;
+    position: relative;
+    left: -400px;
+    
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 53px;
+    width: 48px;
+    border: 1px solid rgb(196, 192, 192);
+    border-radius: 10px;
+    cursor: pointer;
+    color: gray;
+   
+}
+
+.date h5{
+    color: gray;
+    font-weight: 600;
+    
+}
+
+/* .date h5:hover{
+    color: #F84464;
+    font-weight: 600;
+} */
+
+.date .po{
+    color: black;
+}
+
+.date:hover{
+    color: #F84464;
+}
+
+.changec{
+    color: white;
+    background-color: #F84464;
+    border: none;
+   
+}
+
+.changec h5{
+    color: white;
+}
+
+.changec .po{
+    color: white;
+}
+
+#tfill{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    height: 50px;
+    width: 300px;
+   
+    position: relative;
+    left: 450px;
+}
+
+.loop{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 130px;
+    
+    border: 1px solid rgb(180, 180, 180);
+}
+
+.loop h5{
+    color: black;
+    font-weight: 400;
+}
+
+.fbox{
+    height: 150px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border: 1px solid rgb(185, 181, 181);
+    box-shadow: 5px 5px 8px 2px #cbcbcb;
+    z-index: 4;
+    background-color: white;
+}
+
+.fbox h5{
+    font-weight: 400;
+}
+.fbox h5:hover{
+    color: #F84464;
+    cursor: pointer;
+}
+
+#fbox1{
+    position: absolute;
+    top: 280px;
+    right: 230px;
+}
+
+#fbox2{
+    position: absolute;
+    top: 280px;
+    right: 80px;
+}
+
+.gayab{
+    display: none;
+}
+
+#motabox{
+    min-height: 300px;
+    width: 1200px;
+    background-color: white;
+    position: relative;
+    top: 30px;
+    left: 160px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#googa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    width: 1200px;
+    border-top: 1px solid rgb(167, 164, 164);
+    border-bottom: 1px solid rgb(167, 164, 164);
+    margin-top: 20px;
+}
+
+#timer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.am{
+    height: 35px;
+    width: 90px;
+    border: 1px solid rgb(167, 164, 164);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    border-radius: 4px;
+    color: #67BF62;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 600px){
+    #cine{
+        min-height: 800px;
+        background-color: rgb(234, 233, 233);
+        user-select: none;
+    }
+    
+    #mbar{
+        height: 120px;
+        width: 100%;
+        background-color: #453959;
+        color: white;
+    }
+    
+    #mbar h1{
+        position: absolute;
+        top: 60px;
+        left: 10px;
+    }
+
+    #pfill{
+        height: 130px;
+        width: 100%;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+    }
+    
+    #dater{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 50px;
+        width: 200px;
+        position: relative;
+        left: 0px;
+        
+    }
+    
+    .date{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 53px;
+        width: 48px;
+        border: 1px solid rgb(196, 192, 192);
+        border-radius: 10px;
+        cursor: pointer;
+        color: gray;
+       
+       
+    }
+
+    #tfill{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        height: 90px;
+        width: 150px;
+       
+        position: relative;
+        left: 0px;
+    }
+    
+    .loop{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 130px;
+        margin-top: 10px;
+        border: 1px solid rgb(180, 180, 180);
+    }
+
+    .fbox{
+        height: 180px;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        border: 1px solid rgb(185, 181, 181);
+        box-shadow: 5px 5px 8px 2px #cbcbcb;
+        z-index: 4;
+        background-color: white;
+    }
+    
+   
+    
+    #fbox1{
+        position: absolute;
+        top: 260px;
+        right: 10px;
+    }
+    
+    #fbox2{
+        position: absolute;
+        top: 260px;
+        right: 10px;
+    }
+    
+    #motabox{
+        min-height: 300px;
+        width: 335px;
+        background-color: white;
+        position: relative;
+        top: 30px;
+        left: 10px;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #googa{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 230px;
+        width: 335px;
+        border-top: 1px solid rgb(167, 164, 164);
+        border-bottom: 1px solid rgb(167, 164, 164);
+        margin-top: 20px;
+    }
+    
+    #timer{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 30px;
+       
+    }
+    
+    .am{
+        height: 35px;
+        width: 90px;
+        border: 1px solid rgb(167, 164, 164);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 20px;
+        border-radius: 4px;
+        color: #67BF62;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+}
