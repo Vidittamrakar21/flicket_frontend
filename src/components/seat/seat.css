@@ -169,6 +169,24 @@
     cursor: pointer;
 }
 
+.paybut{
+    position: fixed;
+    bottom: 40px;
+    height: 35px;
+    width: 250px;
+    background-color: #F84464;
+    color: white;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    z-index: 4;
+    cursor: pointer;
+}
+
+.gayab{
+    display: none;
+}
+
 @media only screen and (max-width: 600px){
     #layout{
         width: 1000px;
@@ -228,6 +246,23 @@
         justify-content: center;
         flex-direction: column;
         margin-left: 700px;
+    }
+
+    .paybut{
+        position: fixed;
+        bottom: 80px;
+        height: 35px;
+        width: 280px;
+        background-color: #F84464;
+        color: white;
+        font-size: 17px;
+        border: none;
+        border-radius: 10px;
+        z-index: 4;
+    }
+
+    .gayab{
+        display: none;
     }
     
     
