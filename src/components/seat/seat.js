@@ -8,6 +8,8 @@ function Seat(){
 
         const [but,showbut] = useState(false)
         const [total,settotal] = useState(0)
+        const [count,setcount] = useState(0)
+
 
        //A 
         const refa1 = useRef();
@@ -514,6 +516,13 @@ function Seat(){
                      x.current.style.backgroundColor = "white"
                      x.current.style.color = "rgb(34, 184, 34)"
                      x.current.style.border = "1px solid rgb(34, 184, 34)"
+                     setcount((prev)=> prev+1);
+                     
+                     if(total-1 === count){
+                        showbut(false)
+                        settotal(0)
+                        setcount(0)
+                      }
               }
               
               else{
@@ -521,8 +530,11 @@ function Seat(){
                 x.current.style.color = "white" 
                 x.current.style.border = "none"
                 console.log(x.current.id)
-                
+                settotal((prev)=> prev+1);
+              
               }
+
+              
                 
         }
     return(
