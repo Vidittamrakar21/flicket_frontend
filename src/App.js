@@ -8,6 +8,7 @@ import Movieban from './components/movieban/movieban';
 import Cine from './components/cineplex/cine';
 import Seat from './components/seat/seat';
 import Order from './components/order/order';
+import Sign from './components/sign/sign';
 import Checkstate from './context/checkstate';
 import {
 	BrowserRouter as Router,
@@ -25,6 +26,7 @@ function App() {
 
     <div className="App">
       <Navbar></Navbar>
+      <Sign></Sign>
       <Routes>
          <Route exact path='/' element={<><Home/> </>}></Route> 
          <Route exact path='/movie' element={<> <Movie/> </>}></Route> 

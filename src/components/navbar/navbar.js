@@ -1,8 +1,11 @@
 import './navbar.css';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import checkcontext from '../../context/checkcontext';
 function Navbar () {
 
     const navigate = useNavigate();
+    const a = useContext(checkcontext)
 
     const gohome = () =>{
         navigate('/')
@@ -13,6 +16,10 @@ function Navbar () {
     }
     const goprofile = () =>{
         navigate('/profile')
+    }
+
+    const opensign = () =>{
+        a.openlog()
     }
 
     return(
@@ -37,7 +44,7 @@ function Navbar () {
                 </svg>
                 </div>
 
-                <button id="but">Sign in</button>
+                <button id="but" onClick={opensign}>Sign in</button>
             </nav>
             <nav id="dark">
                 <h4 onClick={gohome}>Home</h4>
