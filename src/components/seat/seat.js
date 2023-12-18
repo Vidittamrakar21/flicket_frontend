@@ -1,7 +1,8 @@
 import './seat.css'
 import Bottom from '../bottom/bottom';
-import { useRef,useState } from 'react';
-
+import { useRef,useState,useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import checkcontext from '../../context/checkcontext';
 
 
 function Seat(){
@@ -9,6 +10,9 @@ function Seat(){
         const [but,showbut] = useState(false)
         const [total,settotal] = useState(0)
         const [count,setcount] = useState(0)
+
+        const navigate = useNavigate()
+        const a = useContext(checkcontext);
 
 
        //A 
@@ -505,10 +509,11 @@ function Seat(){
         const refr16 = useRef();
         const refr17= useRef();
 
+        const [seat , fillseat] = useState([]);
+       
 
 
-
-
+        
 
         const handleclick = (x) =>{
                 showbut(true)
@@ -517,6 +522,7 @@ function Seat(){
                      x.current.style.color = "rgb(34, 184, 34)"
                      x.current.style.border = "1px solid rgb(34, 184, 34)"
                      setcount((prev)=> prev+1);
+                     
                      
                      if(total-1 === count){
                         showbut(false)
@@ -529,7 +535,7 @@ function Seat(){
                 x.current.style.backgroundColor ="rgb(25, 118, 25)" 
                 x.current.style.color = "white" 
                 x.current.style.border = "none"
-                console.log(x.current.id)
+                fillseat(seat.concat(x.current.id))
                 settotal((prev)=> prev+1);
               
               }
@@ -537,6 +543,14 @@ function Seat(){
               
                 
         }
+
+
+        const makeorder = async ()=>{
+               await a.storeblog(seat);
+                navigate('/order')
+
+        }
+
     return(
         <div id="seat">
                 <div id="layout">
@@ -1129,7 +1143,7 @@ function Seat(){
 
 
                 </div>
-                        <button className={but?"paybut":"gayab"}>Pay Rs 11</button>
+                        <button className={but?"paybut":"gayab"} onClick={makeorder}>Pay Rs 11</button>
                 <Bottom></Bottom>
         </div>
     )

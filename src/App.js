@@ -7,6 +7,7 @@ import Profile from './components/profile/profile';
 import Movieban from './components/movieban/movieban';
 import Cine from './components/cineplex/cine';
 import Seat from './components/seat/seat';
+import Order from './components/order/order';
 import Checkstate from './context/checkstate';
 import {
 	BrowserRouter as Router,
@@ -31,6 +32,7 @@ function App() {
          <Route exact path='/moviedetail' element={<> <Movieban/> </>}></Route> 
          <Route exact path='/cine' element={<> <Cine/> </>}></Route> 
          <Route exact path='/seat' element={<> <Seat/> </>}></Route> 
+         <Route exact path='/order' element={<> <Order/> </>}></Route> 
       
   
       </Routes>

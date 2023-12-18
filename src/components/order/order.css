@@ -1,0 +1,211 @@
+#order{
+    background-color: rgb(225, 222, 222);
+    min-height: 700px;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#cdetail{
+    height: 180px;
+    width: 680px;
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#t1{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 60px;
+    width: 670px;
+    background-color: #F84464;
+}
+
+#t1 h3{
+    color: white;
+    margin-left: 15px;
+    font-weight: 400;
+}
+
+#t2{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 120px;
+    width: 670px;
+    background-color: white;
+}
+
+#t2 input{
+    height: 35px;
+    width: 250px;
+}
+
+#submit{
+    background-color: #F84464;
+    height: 40px;
+    border-radius: 8px;
+    width: 150px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#summary{
+    min-height: 380px;
+    width: 670px;
+    background-color: white;
+    margin-top: 30px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#payable{
+    background-color: #FFFCDC;
+    height: 40px;
+    width: 670px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#t3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ed{
+    font-weight: 400;
+    margin-left: 15px;
+    margin-top: 15px;
+}
+
+#proceed{
+    height: 35px;
+    width: 670px;
+    background-color: #F84464;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+}
+
+
+@media only screen and (max-width: 600px){
+    #order{
+        background-color: rgb(225, 222, 222);
+        min-height: 900px;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #cdetail{
+        height: 280px;
+        width: 330px;
+       
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #t1{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        height: 60px;
+        width: 320px;
+        background-color: #F84464;
+    }
+    
+    #t1 h3{
+        color: white;
+        margin-left: 15px;
+        font-weight: 400;
+    }
+    
+    #t2{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-direction: column;
+        height: 220px;
+        width: 320px;
+        background-color: white;
+    }
+    
+    #t2 input{
+        height: 35px;
+        width: 270px;
+    }
+    
+    #submit{
+        background-color: #F84464;
+        height: 40px;
+        border-radius: 8px;
+        width: 280px;
+        border: none;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    #summary{
+        min-height: 380px;
+        width: 320px;
+        background-color: white;
+        margin-top: 30px;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    #payable{
+        background-color: #FFFCDC;
+        height: 40px;
+        width: 320px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    #t3{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .ed{
+        font-weight: 400;
+        margin-left: 15px;
+        margin-top: 15px;
+    }
+    
+    #proceed{
+        height: 35px;
+        width: 320px;
+        background-color: #F84464;
+        border: none;
+        border-radius: 10px;
+        margin-top: 20px;
+        cursor: pointer;
+        color: white;
+        font-size: 16px;
+    }
+}
