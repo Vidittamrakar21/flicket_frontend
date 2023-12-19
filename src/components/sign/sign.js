@@ -1,7 +1,9 @@
 import './sign.css'
 import { useState,useContext } from 'react';
 import checkcontext from '../../context/checkcontext';
+import {auth, provider} from '../../config/firebase-config';
 
+import { signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth';
 function Sign (){
     const [but , show] = useState(false)
     const [sign , showsign] = useState(true)
@@ -23,6 +25,16 @@ function Sign (){
         a.closelog()
     }
 
+    const signwithgoogle= ()=>{
+        signInWithPopup(auth ,provider).then((usercred)=>{
+            console.log("idToken :",usercred._tokenResponse.idToken );
+            console.log("oauthIdToken :",usercred._tokenResponse.oauthIdToken );
+            console.log("oauthAccessToken :",usercred._tokenResponse.oauthAccessToken);
+            console.log("refreshToken :",usercred._tokenResponse.refreshToken);
+           
+        })
+    }
+
     return(
         <div className={a.log?"outer ":"gayab"}>
             <div className={sign?"sign": "gayab"}>
@@ -33,12 +45,15 @@ function Sign (){
                 </div>
                 <h3>Get Started</h3>
                 
-                <div className="coon">
+                <div className="coon" onClick={signwithgoogle}>
                     <div id='gog'>
                         <img src="/images/Google Icon.png" alt="" />
                     </div>
                     <h4>Continue with Google</h4>
                 </div>
+
+                <h4 id='orr'>OR</h4>
+
                 <div className="coon" onClick={openemail}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="grey" class="bi bi-envelope" viewBox="0 0 16 16">
                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
@@ -46,13 +61,9 @@ function Sign (){
 
                  <h4>Continue with Email</h4>
                 </div>
-                <h4 id='orr'>OR</h4>
-
-                <div id="phono">
-                    <h4>+91</h4>
-                    <input type="number" placeholder='&nbsp; Continue with mobile number ' onClick={handleclick}/>
-                </div>
-                <button className={but? "cont": "gayab"}>Continue</button>
+                
+                <h5 id='terms'>I agree to the <span>Terms & Conditions</span> & <span>Privacy Policy</span></h5>
+               
             </div>
 
             <div className={!sign?"signmail":"gayab"}>
@@ -64,7 +75,9 @@ function Sign (){
                     <h2>Login with Email</h2>
                     <h5>Email</h5>
                     <input type="email"  />
-                    <button className='cont'>Continue</button>
+                    <h5>Password</h5>
+                    <input type="password" />
+                    <button className='econt'>Continue</button>
             </div>
         </div>
     )

@@ -59,12 +59,6 @@
     width: 280px;
 }
 
-.signmail button{
-    position: absolute;
-    bottom: 150px;
-    left: 580px;
-}
-
 
 #cross{
     position: relative;
@@ -99,7 +93,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 40px;
     border-radius: 5px;
 }
 
@@ -142,6 +136,18 @@
     cursor: pointer;
 }
 
+.econt{
+    height: 40px;
+    width: 350px;
+    margin-top: 90px;
+    margin-left: 20px;
+    background-color: #F84464;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
 .gayab{
     display: none;
 }
@@ -150,6 +156,17 @@
     position: relative;
     top: 20px;
     left: 10px;
+}
+
+#terms{
+    position: relative;
+    top: 170px;
+    color: gray;
+    font-weight: 500;
+}
+
+#terms span{
+    text-decoration: underline;
 }
 
 @media only screen and (max-width: 600px){
@@ -204,7 +221,7 @@
     .signmail h5{
         font-weight: 400;
         color: rgb(39, 39, 39);
-        margin-top: 50px;
+        margin-top: 70px;
         margin-left: 20px;
     }
     
@@ -214,10 +231,19 @@
         width: 280px;
     }
     
-    .signmail button{
-        position: absolute;
-        bottom: 180px;
-        left: 25px;
+    
+
+    .econt{
+        height: 40px;
+        width: 320px;
+        margin-top: 90px;
+        margin-left: 10px;
+        background-color: #F84464;
+        font-size: 16px;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
     }
     
     
@@ -254,7 +280,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        margin-top: 20px;
+        margin-top: 40px;
         border-radius: 5px;
     }
     
