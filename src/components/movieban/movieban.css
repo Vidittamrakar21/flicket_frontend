@@ -1,5 +1,5 @@
 #ban{
-    min-height: 1900px;
+    min-height: 1000px;
     user-select: none;
 }
 
@@ -135,17 +135,22 @@
     position: absolute;
     top: 610px;
     left: 150px;
+    padding: 20px;
+    min-height: 70px;
+    /* border: 1px solid black; */
 }
 
 #cst{
-    position: absolute;
-    top: 650px;
-    left: 150px;
+    /* position: absolute;
+    top: 750px;
+    left: 150px; */
     min-height: 100px;
     display: flex;
     align-items: start;
     justify-content: center;
     flex-direction: column;
+    margin-left: 150px;
+    margin-top: 190px;
 }
 
 #cst h3{
@@ -154,7 +159,7 @@
 
 #rev{
     position: absolute;
-    top: 850px;
+    top: 950px;
     left: 150px;
 }
 
@@ -162,15 +167,28 @@
     width: 350px;
     min-height: 200px;
     border: 1px solid gray;
-    position: absolute;
-    top: 890px;
-    left: 150px;
+    /* position: absolute;
+    top: 990px;
+    left: 150px; */
+    /* margin-left: 150px; */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     border-radius: 6px;
+    margin-top: 30px;
 
+}
+
+#rrr{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 230px;
+    width: 370px;
+    margin-left: 150px;
+    margin-top: 90px;
 }
 
 #revbox1{
@@ -279,9 +297,11 @@
     top: 0px;
 }
 
+
+
 @media only screen and (max-width: 600px){
     #ban{
-        min-height: 1900px;
+        min-height: 1500px;
         user-select: none;
     }
     
@@ -403,18 +423,22 @@
     #bbt{
         position: absolute;
         top: 380px;
-        left: 30px;
+        left: 0px;
+        padding: 20px;
+        min-height: 70px;
     }
     
     #cst{
-        position: absolute;
-        top: 450px;
-        left: 30px;
+        /* position: absolute;
+        top: 650px;
+        left: 30px; */
         min-height: 100px;
         display: flex;
         align-items: start;
         justify-content: center;
         flex-direction: column;
+        margin-left: 30px;
+        margin-top: 430px;
     }
     
     #cst h3{
@@ -423,7 +447,7 @@
     
     #rev{
         position: absolute;
-        top: 590px;
+        top: 890px;
         left: 30px;
     }
     
@@ -431,15 +455,26 @@
         width: 280px;
         min-height: 200px;
         border: 1px solid gray;
-        position: absolute;
+        /* position: absolute;
         top: 650px;
-        left: 30px;
+        left: 30px; */
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         border-radius: 6px;
     
+    }
+
+    #rrr{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        min-height: 230px;
+        width: 300px;
+        margin-left: 30px;
+        margin-top: 50px;
     }
     
     #revbox1{

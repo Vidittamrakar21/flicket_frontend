@@ -1,5 +1,5 @@
 #mov{
-    min-height: 1400px;
+    min-height: 1000px;
     background-color: rgb(231, 231, 231);
     
 }
@@ -143,9 +143,14 @@
     cursor: pointer;
 }
 
+#find{
+    margin-top: -220px;
+    margin-left: 250px;
+    font-weight: 400;
+}
 @media only screen and (max-width: 600px){
     #mov{
-        min-height: 1300px;
+        min-height: 1000px;
         background-color: rgb(231, 231, 231);
         margin-top: 80px;
         
@@ -199,5 +204,11 @@
         background-color: #fc3d60;
         color: white;
         border: none;
+    }
+
+    #find{
+        margin-top: -180px;
+        margin-left: 0px;
+        font-weight: 400;
     }
 }

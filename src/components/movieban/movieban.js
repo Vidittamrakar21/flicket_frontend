@@ -1,18 +1,39 @@
 import './movieban.css'
 import Bottom from '../bottom/bottom';
 import { useNavigate,useParams } from 'react-router-dom';
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
+import axios from 'axios';
+import ClipLoader from "react-spinners/ClipLoader";
 
 function Movieban(){
     const navigation = useNavigate();
+    const [loading, setload] = useState(true);
     const [st1 , show1] = useState(false)
     const [st2 , show2] = useState(false)
     const [st3 , show3] = useState(false)
     const [st4 , show4] = useState(false)
     const [st5 , show5] = useState(false)
     const [rating, showrating] = useState(false)
+    const [idata, setdata] = useState([])
+    const [cast, setcast] = useState([])
+    const [rate, setrate] = useState([])
 
     const {id} = useParams();
+
+    const getdata = async()=>{
+        const data = await (await axios.get(`http://localhost:8080/api/movie/getone/${id}`)).data;
+       if(data){
+        setdata(data);
+        setcast(data.cast);
+        setrate(data.review);
+        setload(false)
+       }
+    }
+
+    useEffect(()=>{
+        console.log(id)
+        getdata()
+    },[])
 
     const handleclick = () =>{
         navigation('/cine')
@@ -94,14 +115,14 @@ function Movieban(){
     return(
         <div id="ban" >
             <div id="bigimg">
-                <img src="https://www.hindustantimes.com/ht-img/img/2023/09/02/1600x900/tiger_3_1693633096774_1693633097167.jpg" alt="" />
+                <img src={idata.bannerimg} alt="" />
             </div>
             <div id='smallimg'>
-                <img src="https://m.media-amazon.com/images/M/MV5BNTk4ZjM1OWMtYjc3Ni00NzFhLTkwZGEtZWZiYjFhZTk0YjZhXkEyXkFqcGdeQXVyNTkzNDQ4ODc@._V1_.jpg" alt="" />
+                <img src={idata.image} alt="" />
 
             </div>
 
-            <h1 id='mname'>Tiger 3</h1>
+            <h1 id='mname'>{idata.name}</h1>
             <h2 id='mrate'>8.2/10</h2> 
             <h3 id='mvote'>304k votes</h3>
 
@@ -113,31 +134,50 @@ function Movieban(){
                 <button onClick={handlerating}>Rate Now</button>
             </div>
 
-            <h3 id="line"><span>3h 21m</span> . Action</h3>
+            <h3 id="line"><span>{idata.duration}</span> . {idata.type}</h3>
             <button id='btt' onClick={handleclick}>Book Tickets</button>
             <h2 id="abt">About The Movie</h2>
-            <p id='bbt'>Tiger and Zoya are back - to save the country and their family. This time it`s personal!</p>
+            <ClipLoader
+                 color="#F84464"
+                 loading= {loading}
+                 cssOverride={{marginTop:"10px", marginLeft:"30px"}}
+  
+                />
+           <div id="ppp">
+          <div id="bbt">
+            {idata.description}
+          </div>
+           </div>
+           
              <div id="cst">
                 <h2>Cast</h2>
-                <h3>Salman Khan</h3>
-                <h3>Katrina Kaif</h3>
-                <h3>Emraan Hashmi</h3>
-                <h3>Revathi</h3>
+               {cast.map((item)=>{
+                return(
+                    <h3>{item}</h3>
+                )
+               })}
              </div>
 
-             <h2 id="rev">Top Reviews</h2>
-
-             <div id="revbox">
+             {rate.length>0?<h2 id="rev">Top Reviews</h2>:""}
+            <div id="rrr">
+            {rate.map((item)=>{
+                return(
+                    <div id="revbox">
                 <div id="ee">
                     <div id="uu">
                         <img src="/images/user.png" alt="" />
                     </div>
                     <h3>User</h3>
-                    <h3>8/10</h3>
+                    <h3>{item.rate}/5</h3>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sed quidem ut vel labore earum cupiditate eum facere suscipit ipsa? Repellendus aliquam animi nisi vitae! Nisi deleniti dolorem cupiditate provident!</p>
+                <p>{item.txt}</p>
              </div>
-             <div id="revbox1">
+                )
+             })}
+            </div>
+
+
+             {/* <div id="revbox1">
                 <div id="ee">
                     <div id="uu">
                         <img src="/images/user.png" alt="" />
@@ -166,7 +206,7 @@ function Movieban(){
                     <h3>8/10</h3>
                 </div>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia sed quidem ut vel labore earum cupiditate eum facere suscipit ipsa? Repellendus aliquam animi nisi vitae! Nisi deleniti dolorem cupiditate provident!</p>
-             </div>
+             </div> */}
 
              <div className={rating?"outer":"gayab"}>
                 <div id="rt">

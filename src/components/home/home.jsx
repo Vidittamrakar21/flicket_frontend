@@ -4,15 +4,18 @@ import Card from '../card/card';
 import Bottom from '../bottom/bottom';
 import axios from 'axios';
 import { useState ,useEffect } from 'react';
+import ClipLoader from "react-spinners/ClipLoader";
 
 
 function Home (){
     const [idata, setdata] = useState([]);
+    const [loading, setload] = useState(true);
     const initiate = async ()=>{
         const data = await (await axios.get('http://localhost:8080/api/movie/specific')).data;
         if(data){
             setdata(data);
             console.log(data)
+            setload(false)
         }
         else{
             console.log("error")
@@ -22,6 +25,8 @@ function Home (){
     useEffect(()=>{
         initiate()
     },[])
+
+   
 
     return(
         <div id='home'>
@@ -33,6 +38,13 @@ function Home (){
                         <Card name = {item.name} type = {item.type} image = {item.image} id={item._id}></Card>
                     )
                 })}
+
+            <ClipLoader
+              color="#F84464"
+              loading= {loading}
+              cssOverride={{marginTop:"130px", marginLeft:"-520px"}}
+  
+            />
             </div>
             <hr />
             <h3 id="place">Indore &#9660;</h3>

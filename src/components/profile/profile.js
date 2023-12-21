@@ -1,6 +1,7 @@
 import './profile.css';
 import Bottom from '../bottom/bottom';
-import { useState } from 'react';
+import { useState,useRef } from 'react';
+import axios from 'axios'
 
 function Profile(){
 
@@ -11,6 +12,11 @@ function Profile(){
     const [setting ,openset ] = useState(false);
     const [buton ,seton ] = useState(true);
     const [butoff ,setoff ] = useState(false);
+
+    const name = useRef()
+    const mail = useRef()
+    const num = useRef()
+    const city = useRef() 
 
 
     const openeditor = () =>{
@@ -52,10 +58,92 @@ function Profile(){
             setoff(false)
             seton(true)
     }
-    const reset = ()=>{
-        openpro(true)
-        openedit(false)
+    const reset = async ()=>{
+
+         if(name.current?.value !== "" && mail.current?.value !== "" && num.current?.value !== "" && city.current?.value !== "" ){
+            const namedata = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            const maildata = await (await axios.patch('http://localhost:8080/api/user/updatemail',{email: mail.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            const numdata = await (await axios.patch('http://localhost:8080/api/user/updatemobile',{mobileno: num.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            if(data && maildata && numdata && namedata){
+                alert(data.message);
+                openpro(true)
+                openedit(false)
+
+            }
+
+        }
+
+         else if(city.current?.value !== "" && name.current?.value !== ""){
+            const namedata = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            if(data && namedata){
+                alert(data.message);
+                openpro(true)
+                openedit(false)
+
+            }
+
+        }
+
+        else if(name.current?.value !== ""){
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            if(data){
+                alert(data.message);
+                openpro(true)
+                openedit(false)
+
+            }
+        }
+        else if(mail.current?.value !== ""){
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatemail',{email: mail.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            if(data){
+                alert(data.message);
+                openpro(true)
+                openedit(false)
+
+            }
+
+        }
+        else if(num.current?.value !== ""){
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatemobile',{mobileno: num.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            if(data){
+                alert(data.message);
+                openpro(true)
+                openedit(false)
+
+            }
+
+        }
+        else if(city.current?.value !== ""){
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            if(data){
+                alert(data.message);
+                openpro(true)
+                openedit(false)
+
+            }
+
+        }
+
+       
+
+       
+        else if(name.current?.value === "" && mail.current?.value === "" && num.current?.value === "" && city.current?.value === "" ){
+            alert("Input fileds are required !")
+        }
+        
     }
+
+    const deleteaccount = async ()=>{
+        if(window.confirm("On deleting your account, all the booking history will also be deleted. Are you sure ,you want to continue !")){
+            const data = await (await axios.delete('http://localhost:8080/api/user/delete',{uid: "6581d8c091ec4dc08015152a"})).data
+            if(data.message){
+                alert(data.message)
+            }
+        }
+    }
+    
 
 
     return(
@@ -119,23 +207,23 @@ function Profile(){
                     
                     </div>
                     <div className="kan">
-                        <input type="email" placeholder='&nbsp;Edit Email' />
+                        <input type="email" placeholder='&nbsp;Edit Email' ref={mail} />
                     </div>
                     <div className="kan">
                         <h4>Mobile Number</h4>
                         <h4 className='green'>+91 9365448902</h4>
                     </div>
                     <div className="kan">
-                        <input type="number" placeholder='&nbsp;Edit Mo. Number'/>
+                        <input type="number" placeholder='&nbsp;Edit Mo. Number' ref={num}/>
                     </div>
                     <h3>Personal Details</h3>
                     <div className="kan">
                         <h4>Name</h4>
-                        <input type="text" placeholder='&nbsp;Enter Name' />
+                        <input type="text" placeholder='&nbsp;Enter Name' ref={name} />
                     </div>
                     <div className="kan">
                         <h4>City</h4>
-                        <input type="text" placeholder='&nbsp;Enter Your City' />
+                        <input type="text" placeholder='&nbsp;Enter Your City' ref={city} />
                     </div>
                     <button id='save' onClick={reset}>Save Changes</button>
             </div>
@@ -172,7 +260,7 @@ function Profile(){
                </div>
                </div>
 
-               <div className="item">
+               <div className="item" onClick={deleteaccount}>
                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="gray" class="bi bi-person-x" viewBox="0 0 16 16">
                 <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m.256 7a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1z"/>
                 <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m-.646-4.854.646.647.646-.647a.5.5 0 0 1 .708.708l-.647.646.647.646a.5.5 0 0 1-.708.708l-.646-.647-.646.647a.5.5 0 0 1-.708-.708l.647-.646-.647-.646a.5.5 0 0 1 .708-.708"/>
