@@ -187,6 +187,12 @@
     display: none;
 }
 
+/* #f1{
+    background-color: rgba(70, 69, 69, 0.511);
+    color: white;
+    border: none;
+} */
+
 @media only screen and (max-width: 600px){
     #layout{
         width: 1000px;

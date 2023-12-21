@@ -1,0 +1,43 @@
+#sch{
+    min-height: 600px;
+    background-color: rgb(234, 233, 233);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+#sch h3{
+    font-weight: 400;
+}
+
+#sinp{
+    display: none;
+  
+}
+
+
+@media only screen and (max-width: 600px){
+    #sch{
+        min-height: 700px;
+        background-color: rgb(234, 233, 233);
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    
+    }
+
+    #sinp{
+        display: flex;
+        height: 40px;
+        width: 320px;
+        position: absolute;
+        top: 75px;
+        border: none;
+        border-bottom: 1px solid rgb(84, 82, 82);
+    }
+}

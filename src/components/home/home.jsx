@@ -2,19 +2,37 @@ import './home.css'
 import Slider from '../corousel/corousel';
 import Card from '../card/card';
 import Bottom from '../bottom/bottom';
+import axios from 'axios';
+import { useState ,useEffect } from 'react';
 
 
 function Home (){
+    const [idata, setdata] = useState([]);
+    const initiate = async ()=>{
+        const data = await (await axios.get('http://localhost:8080/api/movie/specific')).data;
+        if(data){
+            setdata(data);
+            console.log(data)
+        }
+        else{
+            console.log("error")
+        }
+    }
+
+    useEffect(()=>{
+        initiate()
+    },[])
+
     return(
         <div id='home'>
             <Slider></Slider>
             <h2>Recommended Movies</h2>
             <div id='main'>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
-                <Card></Card>
+                {idata.map((item)=>{
+                    return(
+                        <Card name = {item.name} type = {item.type} image = {item.image} id={item._id}></Card>
+                    )
+                })}
             </div>
             <hr />
             <h3 id="place">Indore &#9660;</h3>

@@ -110,6 +110,21 @@
     cursor: pointer;
 }
 
+#bttt{
+    background-color: #F84464;
+    /* position: absolute;
+    top: 450px;
+    left: 450px; */
+    border: none;
+    height: 40px;
+    width: 290px;
+    font-size: 16px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
 #abt{
     position: absolute;
     left: 150px;
@@ -230,6 +245,38 @@
 }
 #revbox3 p{
     padding: 20px;
+}
+
+#rt{
+    height: 400px;
+    width: 320px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#star{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 310px;
+    height: 60px;
+}
+
+.gayab{
+    display: none;
+}
+
+#txt{
+    margin-top: 20px;
+    resize: none;
+}
+#crss{
+    position: relative;
+    left: 130px;
+    top: 0px;
 }
 
 @media only screen and (max-width: 600px){

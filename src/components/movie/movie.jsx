@@ -3,8 +3,9 @@ import Slider from '../corousel/corousel';
 import Bottom from '../bottom/bottom';
 import Card from '../card/card';
 import Fill from './fill';
-import { useState,useContext } from 'react';
+import { useState,useContext,useEffect } from 'react';
 import checkcontext from '../../context/checkcontext';
+import axios from 'axios';
 
 function Movie (){
 
@@ -107,6 +108,21 @@ function Movie (){
         color9(false)
     }
 
+    const [idata, setdata] = useState([]);
+    const initiate = async ()=>{
+        const data = await (await axios.get('http://localhost:8080/api/movie/specific')).data;
+        if(data){
+            setdata(data);
+            console.log(data)
+        }
+        else{
+            console.log("error")
+        }
+    }
+
+    useEffect(()=>{
+        initiate()
+    },[])
 
     return(
         <div id="mov">
@@ -140,11 +156,11 @@ function Movie (){
             <div id="play">
                 <h2>Movies In Indore</h2>
                 <div id="display">
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
-                    <Card></Card>
+                {idata.map((item)=>{
+                    return(
+                        <Card name = {item.name} type = {item.type} image = {item.image} id={item._id}></Card>
+                    )
+                })}
                 </div>
             </div>
 
