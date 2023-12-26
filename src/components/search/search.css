@@ -18,6 +18,10 @@
   
 }
 
+#isearch{
+    display: none;
+}
+
 
 @media only screen and (max-width: 600px){
     #sch{
@@ -39,5 +43,21 @@
         top: 75px;
         border: none;
         border-bottom: 1px solid rgb(84, 82, 82);
+        z-index: 3;
+    }
+
+    #isearch{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        background-color: rgb(115, 0, 255);
+        top: 75px;
+        right: 20px;
+        border-bottom: 1px solid rgb(84, 82, 82);
+        z-index: 4;
+
     }
 }

@@ -1,7 +1,8 @@
 import './navbar.css';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect,useRef } from 'react';
 import checkcontext from '../../context/checkcontext';
+import axios from 'axios';
 function Navbar () {
 
     const navigate = useNavigate();
@@ -26,6 +27,43 @@ function Navbar () {
         a.openlog()
     }
 
+    const srinp = useRef();
+
+    const searchmovie = async () =>{
+        const movie = await (await axios.post('http://localhost:8080/api/movie/search',{searchval: srinp.current?.value})).data;
+        if(movie){
+            if(movie.message){
+                if(movie.message === "empty"){
+                    await a.saveval(null);
+                }
+                else{
+
+                    alert(movie.message);
+                }
+            }
+            else{
+                console.log(movie);
+               await a.saveval(movie);
+            }
+        }
+
+    }
+
+    useEffect(()=>{
+        document.addEventListener('keydown',detectkeydown,true);
+    },[])
+
+    const detectkeydown = async (e)=>{
+
+        if(e.key === "Enter" && srinp.current?.value !== "" ){
+           await searchmovie()
+            console.log("enter")
+        }
+
+       
+
+    }
+
     return(
         <nav>
 
@@ -34,7 +72,7 @@ function Navbar () {
                     <h1 onClick={gohome}>FLICKET</h1>
                 </div>
 
-                <input type="search" placeholder = "&nbsp;Search for Movies" onClick={gosearch}/>
+                <input type="search" placeholder = "&nbsp;Search for Movies" onClick={gosearch} ref={srinp}/>
                 <div id='search' onClick={gosearch}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="white" class="bi bi-search" viewBox="0 0 16 16">
                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>

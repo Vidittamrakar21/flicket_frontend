@@ -6,7 +6,7 @@ const Checkstate = (props) =>{
     const [log, logit] = useState(false);
     const [com, comit] = useState(false);
     const [side, oside] = useState(false);
-    const [value, savevalue] = useState("");
+    const [mvalue, savevalue] = useState('');
     const [bdata, store] = useState([]);
     const [loading, isloading] = useState(false);
     const [post, setpost] = useState(true);
@@ -41,7 +41,7 @@ const Checkstate = (props) =>{
 
     }
    
-    const saveblog = (v) =>{
+    const saveval = (v) =>{
         savevalue(v);
     }
 
@@ -62,7 +62,7 @@ const Checkstate = (props) =>{
     }
 
    return (
-    <Checkcontext.Provider value={{setuserid,setdata,openlog, closelog,opencom,closecom,openside, closeside,saveblog,savevalue, storeblog,store,loader,loading,userid,bdata,value,side,com,log,post}}>
+    <Checkcontext.Provider value={{setuserid,setdata,openlog, closelog,opencom,closecom,openside, closeside,saveval,savevalue, storeblog,store,loader,loading,userid,bdata,mvalue,side,com,log,post}}>
         {props.children}
     </Checkcontext.Provider>
    ); 
