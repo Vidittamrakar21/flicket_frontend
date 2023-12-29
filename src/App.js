@@ -33,7 +33,7 @@ function App() {
          <Route exact path='/movie' element={<> <Movie/> </>}></Route> 
          <Route exact path='/profile' element={<> <Profile/> </>}></Route> 
          <Route exact path='/moviedetail/:id' element={<> <Movieban/> </>}></Route> 
-         <Route exact path='/cine' element={<> <Cine/> </>}></Route> 
+         <Route exact path='/cine/:name' element={<> <Cine/> </>}></Route> 
          <Route exact path='/seat' element={<> <Seat/> </>}></Route> 
          <Route exact path='/order' element={<> <Order/> </>}></Route> 
          <Route exact path='/search' element={<> <Search/> </>}></Route> 

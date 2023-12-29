@@ -1,9 +1,12 @@
 import './sign.css'
-import { useState,useContext } from 'react';
+import { useState,useContext,useRef } from 'react';
 import checkcontext from '../../context/checkcontext';
 import {auth, provider} from '../../config/firebase-config';
-
+import validator from 'validator';
 import { signInWithPopup, createUserWithEmailAndPassword } from 'firebase/auth';
+import axios from 'axios';
+
+
 function Sign (){
     const [but , show] = useState(false)
     const [sign , showsign] = useState(true)
@@ -25,14 +28,45 @@ function Sign (){
         a.closelog()
     }
 
-    const signwithgoogle= ()=>{
-        signInWithPopup(auth ,provider).then((usercred)=>{
-            console.log("idToken :",usercred._tokenResponse.idToken );
-            console.log("oauthIdToken :",usercred._tokenResponse.oauthIdToken );
-            console.log("oauthAccessToken :",usercred._tokenResponse.oauthAccessToken);
-            console.log("refreshToken :",usercred._tokenResponse.refreshToken);
+    const signwithgoogle= async ()=>{
+        signInWithPopup(auth ,provider).then(async (usercred)=>{
+           if(usercred._tokenResponse.emailVerified){
+           
+            const user = await (await axios.post('http://localhost:8080/api/user/signup',{email: usercred._tokenResponse.email, name: usercred._tokenResponse.displayName })).data;
+                if (user){
+                    alert(user.message);
+                    a.closelog()
+
+                }
+           }
+            
+          
            
         })
+    }
+
+    const mail = useRef();
+    const pass = useRef();
+
+    const signinwithemail = async () =>{
+        if(!(mail.current?.value && pass.current?.value)){
+            alert("All the fields are required !")
+        }
+        else{
+            const result = validator.isEmail(`${mail.current?.value}`)
+            if(result){
+                const user = await (await axios.post('http://localhost:8080/api/user/signup',{email: mail.current?.value, name: ""})).data;
+                if (user){
+                    alert(user.message);
+                    a.closelog()
+
+                }
+            }
+            else{
+                alert("Invalid email or password !")
+            }
+        }
+
     }
 
     return(
@@ -74,10 +108,10 @@ function Sign (){
                 </div>
                     <h2>Login with Email</h2>
                     <h5>Email</h5>
-                    <input type="email"  />
+                    <input type="email" ref={mail} />
                     <h5>Password</h5>
-                    <input type="password" />
-                    <button className='econt'>Continue</button>
+                    <input type="password" ref={pass}/>
+                    <button className='econt' onClick={signinwithemail}>Continue</button>
             </div>
         </div>
     )

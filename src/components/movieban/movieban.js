@@ -1,9 +1,10 @@
 import './movieban.css'
 import Bottom from '../bottom/bottom';
 import { useNavigate,useParams } from 'react-router-dom';
-import { useState, useEffect} from 'react';
+import { useState, useEffect,useContext} from 'react';
 import axios from 'axios';
 import ClipLoader from "react-spinners/ClipLoader";
+import checkcontext from '../../context/checkcontext';
 
 function Movieban(){
     const navigation = useNavigate();
@@ -17,6 +18,8 @@ function Movieban(){
     const [idata, setdata] = useState([])
     const [cast, setcast] = useState([])
     const [rate, setrate] = useState([])
+
+    const a = useContext(checkcontext);
 
     const {id} = useParams();
 
@@ -35,8 +38,22 @@ function Movieban(){
         getdata()
     },[])
 
-    const handleclick = () =>{
-        navigation('/cine')
+    const handleclick = async () =>{
+        const data = await (await axios.get(`http://localhost:8080/check`)).data;
+        
+        if(data.message=== "declined"){
+            a.openlog()
+        }
+
+        else if (data.message === "jwt expired"){
+            a.openlog()
+        }
+
+        else{
+          
+            navigation(`/cine/${idata.name}`)
+
+        }
     }
 
     const handlerating = () =>{

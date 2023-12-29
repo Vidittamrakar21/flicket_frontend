@@ -249,7 +249,7 @@ function Movie (){
             </div>
 
             <div id="play">
-                <h2>Movies In Indore</h2>
+                <h2>Movies In {a.city}</h2>
                 <div id="display">
                     {idata.length === 0 && check=== true? <h3 id='find'>Not able to find any movie with this filter.</h3>:""}
                 {idata.map((item)=>{

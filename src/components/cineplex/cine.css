@@ -197,7 +197,7 @@
 
 @media only screen and (max-width: 600px){
     #cine{
-        min-height: 800px;
+        min-height: 1100px;
         background-color: rgb(234, 233, 233);
         user-select: none;
     }

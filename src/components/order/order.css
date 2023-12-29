@@ -8,7 +8,7 @@
     flex-direction: column;
 }
 
-#cdetail{
+.cdetail{
     height: 180px;
     width: 680px;
    
@@ -58,7 +58,7 @@
     cursor: pointer;
 }
 
-#summary{
+.summary{
     min-height: 380px;
     width: 670px;
     background-color: white;
@@ -90,7 +90,7 @@
     margin-top: 15px;
 }
 
-#proceed{
+.proceed{
     height: 35px;
     width: 670px;
     background-color: #F84464;
@@ -102,6 +102,18 @@
     font-size: 16px;
 }
 
+.gayab{
+    display: none;
+}
+
+.gpay{
+    height: 600px;
+    width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
 
 @media only screen and (max-width: 600px){
     #order{
@@ -114,7 +126,7 @@
         flex-direction: column;
     }
     
-    #cdetail{
+    .cdetail{
         height: 280px;
         width: 330px;
        
@@ -165,7 +177,7 @@
         cursor: pointer;
     }
     
-    #summary{
+    .summary{
         min-height: 380px;
         width: 320px;
         background-color: white;
@@ -197,7 +209,7 @@
         margin-top: 15px;
     }
     
-    #proceed{
+    .proceed{
         height: 35px;
         width: 320px;
         background-color: #F84464;
@@ -207,5 +219,14 @@
         cursor: pointer;
         color: white;
         font-size: 16px;
+    }
+
+    .gpay{
+        height: 500px;
+        width: 330px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
     }
 }
