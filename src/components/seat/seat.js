@@ -3,9 +3,17 @@ import Bottom from '../bottom/bottom';
 import { useRef,useState,useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import checkcontext from '../../context/checkcontext';
+import {useSelector, useDispatch} from 'react-redux';
+import {setdate, setlocation, setshowtime, setseat,setmid, setdetail, setcity, setuid, setvalidity} from '../../redux/ticketslice';
+
 
 
 function Seat(){
+
+        const ticket = useSelector((state)=> state.ticket)
+        const dispatch = useDispatch()
+        console.log("ticket", ticket)
+
 
         const [but,showbut] = useState(false)
         const [total,settotal] = useState(0)
@@ -547,6 +555,7 @@ function Seat(){
 
         const makeorder = async ()=>{
                await a.storeblog(seat);
+               dispatch(setseat(seat));
                 navigate('/order')
 
         }

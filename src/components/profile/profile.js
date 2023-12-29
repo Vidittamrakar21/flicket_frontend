@@ -1,10 +1,14 @@
 import './profile.css';
 import Bottom from '../bottom/bottom';
-import { useState,useRef } from 'react';
+import { useState,useRef , useEffect,useContext} from 'react';
 import axios from 'axios'
+import checkcontext from '../../context/checkcontext';
+import { useNavigate } from 'react-router-dom';
+
+
 
 function Profile(){
-
+    const navigate = useNavigate();
     const [pro, openpro] = useState(true)
     const [edit ,openedit ] = useState(false);
     const [notif ,openotify ] = useState(false);
@@ -12,6 +16,10 @@ function Profile(){
     const [setting ,openset ] = useState(false);
     const [buton ,seton ] = useState(true);
     const [butoff ,setoff ] = useState(false);
+    const [idata ,setdata ] = useState("");
+    const [access,setaccess ] = useState(false);
+    const a = useContext(checkcontext);
+
 
     const name = useRef()
     const mail = useRef()
@@ -61,10 +69,10 @@ function Profile(){
     const reset = async ()=>{
 
          if(name.current?.value !== "" && mail.current?.value !== "" && num.current?.value !== "" && city.current?.value !== "" ){
-            const namedata = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
-            const maildata = await (await axios.patch('http://localhost:8080/api/user/updatemail',{email: mail.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
-            const numdata = await (await axios.patch('http://localhost:8080/api/user/updatemobile',{mobileno: num.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            const namedata = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: idata.id})).data
+            const maildata = await (await axios.patch('http://localhost:8080/api/user/updatemail',{email: mail.current?.value , uid: idata.id})).data
+            const numdata = await (await axios.patch('http://localhost:8080/api/user/updatemobile',{mobileno: num.current?.value , uid: idata.id})).data
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: idata.id})).data
             if(data && maildata && numdata && namedata){
                 alert(data.message);
                 openpro(true)
@@ -75,8 +83,8 @@ function Profile(){
         }
 
          else if(city.current?.value !== "" && name.current?.value !== ""){
-            const namedata = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            const namedata = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: idata.id})).data
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: idata.id})).data
             if(data && namedata){
                 alert(data.message);
                 openpro(true)
@@ -87,7 +95,7 @@ function Profile(){
         }
 
         else if(name.current?.value !== ""){
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: idata.id})).data
             if(data){
                 alert(data.message);
                 openpro(true)
@@ -96,7 +104,7 @@ function Profile(){
             }
         }
         else if(mail.current?.value !== ""){
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatemail',{email: mail.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatemail',{email: mail.current?.value , uid: idata.id})).data
             if(data){
                 alert(data.message);
                 openpro(true)
@@ -106,7 +114,7 @@ function Profile(){
 
         }
         else if(num.current?.value !== ""){
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatemobile',{mobileno: num.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatemobile',{mobileno: num.current?.value , uid: idata.id})).data
             if(data){
                 alert(data.message);
                 openpro(true)
@@ -116,7 +124,7 @@ function Profile(){
 
         }
         else if(city.current?.value !== ""){
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: "6581d8c091ec4dc08015152a"})).data
+            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: idata.id})).data
             if(data){
                 alert(data.message);
                 openpro(true)
@@ -137,14 +145,50 @@ function Profile(){
 
     const deleteaccount = async ()=>{
         if(window.confirm("On deleting your account, all the booking history will also be deleted. Are you sure ,you want to continue !")){
-            const data = await (await axios.delete('http://localhost:8080/api/user/delete',{uid: "6581d8c091ec4dc08015152a"})).data
+            const data = await (await axios.delete('http://localhost:8080/api/user/delete',{uid: idata.id})).data
             if(data.message){
                 alert(data.message)
             }
         }
     }
     
+    const initial = async ()=>{
+        const data = await (await axios.get('http://localhost:8080/check')).data;
+        if(data.message=== "declined"){
+            a.openlog()
+        }
 
+        else if (data.message === "jwt expired"){
+            a.openlog()
+        }
+
+        else{
+            setdata(data);
+            setaccess(true);
+        }
+
+    }
+
+    
+
+    useEffect(()=>{
+        initial();
+    },[])
+
+    const denied = () =>{
+        a.openlog()
+    }
+
+    const logout = async ()=>{
+
+        const data = await (await axios.post('http://localhost:8080/api/user/logout')).data;
+        if (data.message){
+            alert(data.message);
+            navigate('/')
+        }
+
+
+    }
 
     return(
         <div id='profile'>
@@ -225,7 +269,7 @@ function Profile(){
                         <h4>City</h4>
                         <input type="text" placeholder='&nbsp;Enter Your City' ref={city} />
                     </div>
-                    <button id='save' onClick={reset}>Save Changes</button>
+                    <button id='save' onClick={access?reset:denied}>Save Changes</button>
             </div>
 
             <div className={notif?"notify": "gayab"}>
@@ -269,7 +313,7 @@ function Profile(){
                    <h3 id='della'>Delete Account</h3>
                 </div>
                
-            <div className="item">
+            <div className="item" onClick={logout}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="gray" class="bi bi-person-lock" viewBox="0 0 16 16">
                   <path d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 5.996V14H3s-1 0-1-1 1-4 6-4c.564 0 1.077.038 1.544.107a4.524 4.524 0 0 0-.803.918A10.46 10.46 0 0 0 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h5ZM9 13a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2Zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1Z"/>
                    </svg>

@@ -4,15 +4,31 @@ import { useNavigate,useParams } from 'react-router-dom';
 import Bottom from '../bottom/bottom';
 import checkcontext from '../../context/checkcontext';
 import axios from 'axios';
+import {useSelector, useDispatch} from 'react-redux'
+import {setdate, setlocation, setshowtime, setseat,setmid, setdetail, setcity, setuid, setvalidity,setmname} from '../../redux/ticketslice'
 
 function Cine(){
 
     const navigate = useNavigate()
     const a = useContext(checkcontext)
 
-    const handleclick = ()=>{
+    const handleclick = async (x,y,z,w)=>{
+        dispatch(setshowtime(x))
+        dispatch(setlocation(y))
+        if(date1){
+            const divas = ((din1).toString())+ ", " + ((tareek1).toString())+ ", " + (month)+ ", " + ((year).toString())
+            dispatch(setdate(divas))
+        }
+
+        dispatch(setmid(z))
+        dispatch(setmname(name))
+        dispatch(setvalidity(w))
         navigate('/seat')
     }
+
+    const ticket = useSelector((state)=> state.ticket)
+    const dispatch = useDispatch()
+    console.log("ticket", ticket)
 
     const {name} = useParams();
     const [movie,setmovie] = useState([]);
@@ -22,20 +38,27 @@ function Cine(){
     const [box1 ,openb1] = useState(false);
     const [box2 ,openb2] = useState(false);
 
-    const select1 = () =>{
+    const select1 = async () =>{
         setdate1(true)
         setdate2(false)
         setdate3(false)
+        const divas = ((din1).toString())+ ", " + ((tareek1).toString())+ ", " + (month)+ ", " + ((year).toString())
+        dispatch(setdate(divas))
+
     }
     const select2 = () =>{
         setdate1(false)
         setdate2(true)
         setdate3(false)
+        const divas = ((din2).toString())+ ", " + ((tareek2).toString())+ ", " + (month)+ ", " + ((year).toString())
+        dispatch(setdate(divas))
     }
     const select3 = () =>{
         setdate1(false)
         setdate2(false)
         setdate3(true)
+        const divas = ((din3).toString())+ ", " + ((tareek3).toString())+ ", " + (month)+ ", " + ((year).toString())
+        dispatch(setdate(divas))
     }
     
     const openbox1 =()=>{
@@ -63,16 +86,64 @@ function Cine(){
     const [tareek3, settar3] = useState("")
     const [month, setmonth] = useState("")
     const [tm, settm] = useState("")
+    const [year, setyear] = useState("")
+
+    const settingmonth = (x)=>{
+        if(x === 0){
+            setmonth("Jan")
+        }
+        else if(x === 1){
+            setmonth("Feb")
+
+        }
+        else if(x === 2){
+            setmonth("Mar")
+
+        }
+        else if(x === 3){
+            setmonth("Apr")
+
+        }
+        else if(x ===4){
+            setmonth("May")
+        }
+        else if(x ===5){
+            setmonth("Jun")
+        }
+        else if(x ===6){
+            setmonth("July")
+        }
+        else if(x ===7){
+            setmonth("Aug")
+        }
+        else if(x === 8){
+            setmonth("Sep")
+        }
+        else if(x === 9){
+            setmonth("Oct")
+        }
+        else if(x === 10){
+            setmonth("Nov")
+        }
+        else if(x === 11){
+            setmonth("Dec")
+        }
+        
+        
+    }
 
     
 
 
-    const setnewdate = () =>{
+    const setnewdate = async () =>{
         let date = new Date();
         let day = date.getDay()
         let dt = date.getDate()
-        let month = date.getMonth() + 1;
+        let mn = date.getMonth();
         let tm = date.getHours()
+        let yr = date.getFullYear()
+        console.log("yr", yr)
+        
         
         
         if(day === 0){
@@ -82,8 +153,9 @@ function Cine(){
             settar1(dt)
             settar2(dt +1)
             settar3(dt +2)
-            setmonth(month)
             settm(tm)
+            setyear(yr)
+            settingmonth(mn)
 
         }
 
@@ -94,8 +166,9 @@ function Cine(){
             settar1(dt)
             settar2(dt +1)
             settar3(dt +2)
-            setmonth(month)
             settm(tm)
+            setyear(yr)
+            settingmonth(mn)
         }
 
         else if(day === 2){
@@ -105,8 +178,9 @@ function Cine(){
             settar1(dt)
             settar2(dt +1)
             settar3(dt +2)
-            setmonth(month)
             settm(tm)
+            setyear(yr)
+            settingmonth(mn)
         }
 
         else if(day === 3){
@@ -116,8 +190,9 @@ function Cine(){
             settar1(dt)
             settar2(dt +1)
             settar3(dt +2)
-            setmonth(month)
             settm(tm)
+            setyear(yr)
+            settingmonth(mn)
         }
 
         else if(day === 4){
@@ -127,8 +202,9 @@ function Cine(){
             settar1(dt)
             settar2(dt +1)
             settar3(dt +2)
-            setmonth(month)
             settm(tm)
+            setyear(yr)
+            settingmonth(mn)
         }
 
         else if (day === 5){
@@ -138,8 +214,9 @@ function Cine(){
             settar1(dt)
             settar2(dt +1)
             settar3(dt +2)
-            setmonth(month)
             settm(tm)
+            setyear(yr)
+            settingmonth(mn)
         }
 
         else if (day === 6){
@@ -149,11 +226,12 @@ function Cine(){
             settar1(dt)
             settar2(dt +1)
             settar3(dt +2)
-            setmonth(month)
             settm(tm)
+            setyear(yr)
+            settingmonth(mn)
         }
 
-        
+        console.log("mon",month)
     }
 
     const setdata = async () =>{
@@ -170,11 +248,12 @@ function Cine(){
         else{
             console.log(data)
             if(data.city){
+                dispatch(setcity(data.city))
+                dispatch(setuid(data.id))
                 const movie = await (await axios.post(`http://localhost:8080/api/movie/theat`,{city: data.city, name: name})).data;
                 if(movie){
                 setmovie(movie)
-                    
-
+                  
                 }
             }
 
@@ -195,6 +274,7 @@ function Cine(){
     useEffect(()=>{
         setdata()
         setnewdate()
+        
     },[])
 
     return(
@@ -248,20 +328,23 @@ function Cine(){
                 return(
                     <div id="googa">
                        <h4>{item.showlocation}</h4>
+                       
                        <div id="timer">
-                       <div className={date1 &&  tm < 9?"am": "gayab"} onClick={handleclick}>9 am</div>
-                       <div className={date1 &&  tm < 12?"am": "gayab"} onClick={handleclick}>12 pm</div>
-                       <div className={date1 &&  tm < 15?"am": "gayab"} onClick={handleclick}>3 pm</div>
-                       <div className={date1 &&  tm < 18?"am": "gayab"} onClick={handleclick}>6 pm</div>
-                       <div className={date1 &&  tm < 21?"am": "gayab"} onClick={handleclick}>9 pm</div>
-                       <div className={date1 &&  tm < 23?"am": "gayab"} onClick={handleclick}>11 pm</div>
+                       <div className={date1 &&  tm < 9?"am": "gayab"} onClick={()=>{handleclick("9 am",item.showlocation, item._id, "12 pm")}}>9 am</div>
+                       <div className={date1 &&  tm < 12?"am": "gayab"} onClick={()=>{handleclick("12 pm",item.showlocation, item._id, "3 pm")}}>12 pm</div>
+                       <div className={date1 &&  tm < 15?"am": "gayab"} onClick={()=>{handleclick("3 pm",item.showlocation, item._id, "6 pm")}}>3 pm</div>
+                       <div className={date1 &&  tm < 18?"am": "gayab"} onClick={()=>{handleclick("6 pm",item.showlocation, item._id, "9 pm")}}>6 pm</div>
+                       <div className={date1 &&  tm < 21?"am": "gayab"} onClick={()=>{handleclick("9 pm",item.showlocation, item._id, "12 am")}}>9 pm</div>
+                       <div className={date1 &&  tm < 23?"am": "gayab"} onClick={()=>{handleclick("11 pm",item.showlocation, item._id, "2 am")}}>11 pm</div>
 
-                       <div className={!date1 ?"am": "gayab"} onClick={handleclick}>9 am</div>
-                       <div className={!date1 ?"am": "gayab"} onClick={handleclick}>12 pm</div>
-                       <div className={!date1 ?"am": "gayab"} onClick={handleclick}>3 pm</div>
-                       <div className={!date1 ?"am": "gayab"} onClick={handleclick}>6 pm</div>
-                       <div className={!date1 ?"am": "gayab"} onClick={handleclick}>9 pm</div>
-                       <div className={!date1 ?"am": "gayab"} onClick={handleclick}>11 pm</div>
+                       <div className={!date1?"am": "gayab"} onClick={()=>{handleclick("9 am",item.showlocation, item._id, "12 pm")}}>9 am</div>
+                       <div className={!date1?"am": "gayab"} onClick={()=>{handleclick("12 pm",item.showlocation, item._id, "3 pm")}}>12 pm</div>
+                       <div className={!date1?"am": "gayab"} onClick={()=>{handleclick("3 pm",item.showlocation, item._id, "6 pm")}}>3 pm</div>
+                       <div className={!date1?"am": "gayab"} onClick={()=>{handleclick("6 pm",item.showlocation, item._id, "9 pm")}}>6 pm</div>
+                       <div className={!date1?"am": "gayab"} onClick={()=>{handleclick("9 pm",item.showlocation, item._id, "12 am")}}>9 pm</div>
+                       <div className={!date1?"am": "gayab"} onClick={()=>{handleclick("11 pm",item.showlocation, item._id, "2 am")}}>11 pm</div>
+
+                      
                 </div>
                </div>
                 )
