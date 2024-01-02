@@ -12,6 +12,8 @@ import checkcontext from '../../context/checkcontext';
 function Home (){
     const [idata, setdata] = useState([]);
     const [loading, setload] = useState(true);
+    const [local, setlocal] = useState(true);
+
 
     const a = useContext(checkcontext);
     const initiate = async ()=>{
@@ -20,6 +22,18 @@ function Home (){
             setdata(data);
             console.log(data)
             setload(false)
+            const udata = await (await axios.get('http://localhost:8080/check')).data;
+            if(udata.message=== "declined"){
+                a.openlog()
+            }
+            
+            else if (udata.message === "jwt expired"){
+                a.openlog()
+            }
+            else{
+                setlocal(udata)
+                a.setcity(udata.city)
+            }
         }
         else{
             console.log("error")

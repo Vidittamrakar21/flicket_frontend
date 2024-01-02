@@ -115,6 +115,21 @@
 
 }
 
+#razor{
+    height: 38px;
+    width: 250px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 5px;
+    user-select: none;
+}
+
+#razor:hover{
+    background-color: rgba(8, 8, 8, 0.768);
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 600px){
     #order{
         background-color: rgb(225, 222, 222);

@@ -4,6 +4,7 @@ import Bottom from '../bottom/bottom';
 import { useContext, useEffect,useState , useRef} from 'react';
 import GooglePayButton from '@google-pay/button-react';
 import {useSelector, useDispatch} from 'react-redux';
+import axios from 'axios';
 import {setdate, setlocation, setshowtime, setseat,setmid, setdetail, setcity, setuid, setvalidity, setmail,setnumber} from '../../redux/ticketslice';
 
 
@@ -51,6 +52,38 @@ function Order (){
     const num = useRef()
     const butt = useRef()
 
+    const getpay = async () =>{
+      const data = await (await axios.post('http://localhost:8080/api/payment/checkout')).data;
+      const {order, key} = data;
+      
+      const options = {
+        key: key, // Enter the Key ID generated from the Dashboard
+        amount: order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        currency: "INR",
+        name: "Flicket",
+        description: "Test Transaction",
+        image: "https://example.com/your_logo",
+        order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        callback_url: "http://localhost:8080/api/payment/verify",
+        prefill: {
+            name: "Vidit tamrakar",
+            email: "vidit.tamrakar@example.com",
+            contact: "9000090000"
+        },
+        notes: {
+            "address": "Razorpay Corporate Office"
+        },
+        theme: {
+            "color": "#F84464"
+        }
+    };
+    var rzp1 = new window.Razorpay(options);
+   
+        rzp1.open();
+    
+    
+    }
+
     return(
         <div id="order">
             <div className={!show?"cdetail": "gayab"}>
@@ -89,48 +122,10 @@ function Order (){
 
             <div className="cdetail">
                 <div id="t1">
-                    <h3>Pay with Google Pay</h3>
+                    <h3>Pay with Razor Pay</h3>
                 </div>
                 <div id="t2">
-                  
-
-                     <GooglePayButton
-                      environment="TEST"
-                      paymentRequest={{
-                        apiVersion: 2,
-                        apiVersionMinor: 0,
-                        allowedPaymentMethods: [
-                          {
-                            type: 'CARD',
-                            parameters: {
-                              allowedAuthMethods: ['PAN_ONLY', 'CRYPTOGRAM_3DS'],
-                              allowedCardNetworks: ['MASTERCARD', 'VISA'],
-                            },
-                            tokenizationSpecification: {
-                              type: 'PAYMENT_GATEWAY',
-                              parameters: {
-                                gateway: 'example',
-                                gatewayMerchantId: 'exampleGatewayMerchantId',
-                              },
-                            },
-                          },
-                        ],
-                        merchantInfo: {
-                            merchantId: '12345678901234567890',
-                            merchantName: 'Demo Merchant',
-                        },
-                        transactionInfo: {
-                          totalPriceStatus: 'FINAL',
-                          totalPriceLabel: 'Total',
-                          totalPrice: '11.00',
-                          currencyCode: 'USD',
-                          countryCode: 'US',
-                        },
-                      }}
-                      onLoadPaymentData={paymentRequest => {
-                        console.log('load payment data', paymentRequest);
-                      }}
-                    />
+                  <button id='razor' onClick={getpay}>Pay Rs 11</button>
                 </div>
             </div>
 

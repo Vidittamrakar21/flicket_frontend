@@ -10,6 +10,7 @@ import Seat from './components/seat/seat';
 import Order from './components/order/order';
 import Sign from './components/sign/sign';
 import Search from './components/search/search';
+import Success from './components/success/success';
 import Checkstate from './context/checkstate';
 import {
 	BrowserRouter as Router,
@@ -37,6 +38,7 @@ function App() {
          <Route exact path='/seat' element={<> <Seat/> </>}></Route> 
          <Route exact path='/order' element={<> <Order/> </>}></Route> 
          <Route exact path='/search' element={<> <Search/> </>}></Route> 
+         <Route exact path='/success' element={<> <Success/> </>}></Route> 
       
   
       </Routes>

@@ -5,19 +5,22 @@ import Bottom from '../bottom/bottom';
 import checkcontext from '../../context/checkcontext';
 import axios from 'axios';
 import {useSelector, useDispatch} from 'react-redux'
-import {setdate, setlocation, setshowtime, setseat,setmid, setdetail, setcity, setuid, setvalidity,setmname} from '../../redux/ticketslice'
+import {setdate, setlocation, setshowtime, setshowdate,setmid,  setcity, setuid, setvalidity,setmname} from '../../redux/ticketslice'
 
 function Cine(){
 
     const navigate = useNavigate()
     const a = useContext(checkcontext)
+    const [mnt, setmnt] = useState(0)
 
     const handleclick = async (x,y,z,w)=>{
         dispatch(setshowtime(x))
         dispatch(setlocation(y))
         if(date1){
             const divas = ((din1).toString())+ ", " + ((tareek1).toString())+ ", " + (month)+ ", " + ((year).toString())
+            const shd =  ((tareek1).toString())+ "/" + (mnt)+ "/" + ((year).toString())
             dispatch(setdate(divas))
+            dispatch(setshowdate(shd))
         }
 
         dispatch(setmid(z))
@@ -43,7 +46,10 @@ function Cine(){
         setdate2(false)
         setdate3(false)
         const divas = ((din1).toString())+ ", " + ((tareek1).toString())+ ", " + (month)+ ", " + ((year).toString())
+        const shd =  ((tareek1).toString())+ "/" + (mnt)+ "/" + ((year).toString())
         dispatch(setdate(divas))
+        dispatch(setshowdate(shd))
+
 
     }
     const select2 = () =>{
@@ -51,14 +57,19 @@ function Cine(){
         setdate2(true)
         setdate3(false)
         const divas = ((din2).toString())+ ", " + ((tareek2).toString())+ ", " + (month)+ ", " + ((year).toString())
+        const shd =  ((tareek1).toString())+ "/" + (mnt)+ "/" + ((year).toString())
         dispatch(setdate(divas))
+        dispatch(setshowdate(shd))
     }
     const select3 = () =>{
         setdate1(false)
         setdate2(false)
         setdate3(true)
         const divas = ((din3).toString())+ ", " + ((tareek3).toString())+ ", " + (month)+ ", " + ((year).toString())
+        const shd =  ((tareek1).toString())+ "/" + (mnt)+ "/" + ((year).toString())
         dispatch(setdate(divas))
+        dispatch(setshowdate(shd))
+        
     }
     
     const openbox1 =()=>{
@@ -85,6 +96,7 @@ function Cine(){
     const [tareek2, settar2] = useState("")
     const [tareek3, settar3] = useState("")
     const [month, setmonth] = useState("")
+   
     const [tm, settm] = useState("")
     const [year, setyear] = useState("")
 
@@ -143,6 +155,7 @@ function Cine(){
         let tm = date.getHours()
         let yr = date.getFullYear()
         console.log("yr", yr)
+        setmnt(mn+1)
         
         
         

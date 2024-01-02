@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     date : "",
+    showdate: "",
     showtime: "",
     showlocation: "",
     seat: [],
@@ -22,6 +23,10 @@ export const ticketSlice = createSlice({
     reducers: {
         setdate: (state,action)=>{
             state.date = action.payload;
+        },
+
+        setshowdate: (state,action)=>{
+            state.showdate = action.payload;
         },
 
         setshowtime: (state, action)=>{
@@ -80,6 +85,6 @@ export const ticketSlice = createSlice({
 })
 
 
-export const {setdate, setlocation, setshowtime, setseat,setmid, setdetail, setcity, setuid, setvalidity, setmname, setmail,setname,setnumber} = ticketSlice.actions;
+export const {setdate, setlocation, setshowtime, setseat,setmid, setdetail, setcity,setshowdate, setuid, setvalidity, setmname, setmail,setname,setnumber} = ticketSlice.actions;
 
 export default ticketSlice.reducer;
