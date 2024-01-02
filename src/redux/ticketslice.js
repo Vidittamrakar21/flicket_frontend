@@ -1,19 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    date : "",
-    showdate: "",
-    showtime: "",
     showlocation: "",
-    seat: [],
-    movieid: "",
-    moviename: "",
-    email: "",
-    number: "",
     city: "",
     name: "",
-    uid: "",
+    mobileno: "",
+    showtime: "",
+    showdate: "",
+    seatno: [],
+    movieid: "",
+    moviename: "",
     validity: "",
+    date : "",
+    email: "",
+    uid: "",
 
 }
 
@@ -38,7 +38,7 @@ export const ticketSlice = createSlice({
         },
 
         setseat: (state, action)=>{
-            state.seat = action.payload;
+            state.seatno = action.payload;
         },
         setmid: (state, action)=>{
             state.movieid = action.payload
@@ -64,7 +64,7 @@ export const ticketSlice = createSlice({
         },
         setnumber: (state, action)=>{
           
-            state.number = action.payload
+            state.mobileno = action.payload
         },
 
         setcity: (state, action) => {

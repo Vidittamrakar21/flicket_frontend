@@ -523,14 +523,27 @@ function Seat(){
 
         const checkseat = async ()=>{
                 if(ticket){
-                        const data = await (await axios.post('http://localhost:8080/api/ticket/getticket',{showlocation: ticket.showlocation, city: ticket.city ,  showtime : ticket.showtime}, {showdate: ticket.showdate}, {moviename: ticket.moviename})).data;
+                        const data = await (await axios.post('http://localhost:8080/api/ticket/getticket',{showlocation: ticket.showlocation, city: ticket.city ,  showtime : ticket.showtime ,showdate: ticket.showdate, moviename: ticket.moviename})).data;
                 if(data){
                         console.log("data",data)
-                //        { (data.seatno).map((item)=>{
-                //           ("ref"+item).current.style.backgroundColor = "rgba(70, 69, 69, 0.511)"
-                //           item.current.style.color = "white"
-                //           item.current.style.border = "none"
-                //        })}
+                       { data.map((item)=>{
+                               return(()=>{
+                                fillseat(item.seatno)
+                               })
+                         
+                       })}
+
+                       {
+                        seat.map((item)=>{
+                               return(()=>{
+                                console.log("item",seat)
+                                const d = document.getElementById(item)
+                                d.style.backgroundColor = "rgba(70, 69, 69, 0.511)"
+                                d.style.color = "white"
+                                d.style.border = "none"
+                               })
+                        })
+                       }
 
                 }
                 }
