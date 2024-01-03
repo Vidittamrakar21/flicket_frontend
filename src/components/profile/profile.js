@@ -18,6 +18,7 @@ function Profile(){
     const [butoff ,setoff ] = useState(false);
     const [idata ,setdata ] = useState("");
     const [access,setaccess ] = useState(false);
+    const [ticket,setticket ] = useState([]);
     const a = useContext(checkcontext);
 
 
@@ -38,11 +39,15 @@ function Profile(){
         openotify(true);
     }
 
-    const openticket = () =>{
+    const openticket = async () =>{
         openedit(false);
         openpro(false);
         openotify(false);
         opentick(true);
+        const data = await (await axios.get(`http://localhost:8080/api/user/one/${idata.id}`)).data;
+        if(data){
+            setticket(data.bookings);
+        }
     }
 
     const openhelp = () =>{
@@ -283,10 +288,16 @@ function Profile(){
             <div className={tick?"bk": "gayab"}>
                 {/* <h3>No Bookings Yet.</h3> */}
 
-                <div id="book">
-                   <h4 id="bid">Booking Id - 88g5kedi48781</h4>
-                   <h4>Date - 23-11-2023</h4>
-                </div>
+                { ticket.length>0? ticket.map((item)=>{
+                        return(
+                            <div id="book">
+                            <h4 id="bid">Booking Id - {item}</h4>
+                            
+                            </div>
+                        )
+                 }): <h3>No Bookings Yet.</h3>}
+
+               
             </div>
 
             <div className={setting?"acc": "gayab"}>

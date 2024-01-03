@@ -4,6 +4,7 @@ import QRCode from "react-qr-code";
 import { useContext,useEffect,useState } from 'react';
 import checkcontext from '../../context/checkcontext';
 import {useSelector, useDispatch} from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -13,6 +14,7 @@ function Success (){
     const ticket = useSelector((state)=> state.ticket)
   const dispatch = useDispatch()
   console.log("ticket", ticket)
+  const navigate = useNavigate()
 
   const [tdata, setdata] = useState('');
 
@@ -34,6 +36,10 @@ function Success (){
         if(data){
             setdata(data);
             console.log("data",data)
+        }
+        else{
+            alert("An unexpected error occured while booking your ticket !,Kindly try again. NOTE: Any amount deducted from your account will be refunded within 3-4 business days.  ")
+            navigate('/')
         }
 
 

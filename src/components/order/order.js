@@ -2,7 +2,7 @@ import './order.css'
 import checkcontext from '../../context/checkcontext';
 import Bottom from '../bottom/bottom';
 import { useContext, useEffect,useState , useRef} from 'react';
-import GooglePayButton from '@google-pay/button-react';
+
 import {useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
 import {setdate, setlocation, setshowtime, setseat,setmid, setdetail, setcity, setuid, setvalidity, setmail,setnumber} from '../../redux/ticketslice';

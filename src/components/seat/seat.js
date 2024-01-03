@@ -112,32 +112,32 @@ function Seat(){
 
         //D
 
-        const refd1 = useRef();
-        const refd2 = useRef();
-        const refd3 = useRef();
-        const refd4 = useRef();
-        const refd5 = useRef();
-        const refd6 = useRef();
-        const refd7 = useRef();
-        const refd8 = useRef();
-        const refd9 = useRef();
-        const refd10 = useRef();
-        const refd11 = useRef();
-        const refd12 = useRef();
-        const refd13 = useRef();
-        const refd14 = useRef();
-        const refd15 = useRef();
-        const refd16 = useRef();
-        const refd17= useRef();
-        const refd18 = useRef();
-        const refd19 = useRef();
-        const refd20 = useRef();
-        const refd21 = useRef();
-        const refd22 = useRef();
-        const refd23 = useRef();
-        const refd24 = useRef();
-        const refd25 = useRef();
-        const refd26 = useRef();
+        const d1 = useRef();
+        const d2 = useRef();
+        const d3 = useRef();
+        const d4 = useRef();
+        const d5 = useRef();
+        const d6 = useRef();
+        const d7 = useRef();
+        const d8 = useRef();
+        const d9 = useRef();
+        const d10 = useRef();
+        const d11 = useRef();
+        const d12 = useRef();
+        const d13 = useRef();
+        const d14 = useRef();
+        const d15 = useRef();
+        const d16 = useRef();
+        const d17= useRef();
+        const d18 = useRef();
+        const d19 = useRef();
+        const d20 = useRef();
+        const d21 = useRef();
+        const d22 = useRef();
+        const d23 = useRef();
+        const d24 = useRef();
+        const d25 = useRef();
+        const d26 = useRef();
 
         //E
 
@@ -519,6 +519,8 @@ function Seat(){
         const refr17= useRef();
 
         const [seat , fillseat] = useState([]);
+        const [sf , fill] = useState([]);
+        const [drill , ill] = useState(true);
        
 
         const checkseat = async ()=>{
@@ -526,37 +528,45 @@ function Seat(){
                         const data = await (await axios.post('http://localhost:8080/api/ticket/getticket',{showlocation: ticket.showlocation, city: ticket.city ,  showtime : ticket.showtime ,showdate: ticket.showdate, moviename: ticket.moviename})).data;
                 if(data){
                         console.log("data",data)
-                       { data.map((item)=>{
-                               return(()=>{
-                                fillseat(item.seatno)
-                               })
-                         
-                       })}
+                        fill(data.seatno)
+                       
+                        {data.forEach((element) => {
+                                (element.seatno).forEach((item)=>{
+                        
+                                        document.getElementById(item).style.backgroundColor = "rgba(70, 69, 69, 0.511)"
+                                        document.getElementById(item).style.color = "white"
+                                        document.getElementById(item).style.border = "none"
+                                        document.getElementById(item).addEventListener('click',()=>{
+                                            ill(false)    
+                                        })
+                                       })
+                        });}
 
-                       {
-                        seat.map((item)=>{
-                               return(()=>{
-                                console.log("item",seat)
-                                const d = document.getElementById(item)
-                                d.style.backgroundColor = "rgba(70, 69, 69, 0.511)"
-                                d.style.color = "white"
-                                d.style.border = "none"
-                               })
-                        })
-                       }
+        
 
                 }
                 }
         }
         
 
-        useEffect(()=>{
-                checkseat()
+        useEffect( ()=>{
+              checkseat()
+             
+
         },[])
 
         const handleclick = (x) =>{
                 showbut(true)
-              if(  x.current.style.backgroundColor ==="rgb(25, 118, 25)" && x.current.style.color === "white" &&   x.current.style.border === "none"){
+
+              if(drill === false){
+                     x.current.style.backgroundColor = "rgba(70, 69, 69, 0.511)"
+                      x.current.style.color = "white"
+                     x.current.style.border = "none"
+                     ill(true)
+                     showbut(false)
+                }
+
+              else if(  x.current.style.backgroundColor ==="rgb(25, 118, 25)" && x.current.style.color === "white" &&   x.current.style.border === "none"){
                      x.current.style.backgroundColor = "white"
                      x.current.style.color = "rgb(34, 184, 34)"
                      x.current.style.border = "1px solid rgb(34, 184, 34)"
@@ -701,34 +711,34 @@ function Seat(){
 
                     <div id="D">
                             <h4>D</h4>
-                            <div className="sb" id='d1' ref={refd1} onClick={()=>{handleclick(refd1)}}>1</div>
-                            <div className="sb" id='d2' ref={refd2} onClick={()=>{handleclick(refd2)}}>2</div>
-                            <div className="sb" id='d3' ref={refd3} onClick={()=>{handleclick(refd3)}}>3</div>
-                            <div className="sb" id='d4' ref={refd4} onClick={()=>{handleclick(refd4)}}>4</div>
-                            <div className="sb" id='d5' ref={refd5} onClick={()=>{handleclick(refd5)}}>5</div>
-                            <div className="sb" id='d6' ref={refd6} onClick={()=>{handleclick(refd6)}}>6</div>
-                            <div className="sb" id='d7' ref={refd7} onClick={()=>{handleclick(refd7)}}>7</div>
+                            <div className="sb" id='d1' ref={d1} onClick={()=>{handleclick(d1)}}>1</div>
+                            <div className="sb" id='d2' ref={d2} onClick={()=>{handleclick(d2)}}>2</div>
+                            <div className="sb" id='d3' ref={d3} onClick={()=>{handleclick(d3)}}>3</div>
+                            <div className="sb" id='d4' ref={d4} onClick={()=>{handleclick(d4)}}>4</div>
+                            <div className="sb" id='d5' ref={d5} onClick={()=>{handleclick(d5)}}>5</div>
+                            <div className="sb" id='d6' ref={d6} onClick={()=>{handleclick(d6)}}>6</div>
+                            <div className="sb" id='d7' ref={d7} onClick={()=>{handleclick(d7)}}>7</div>
                             <div className="gapp"></div>
-                            <div className="sb" id='d8' ref={refd8} onClick={()=>{handleclick(refd8)}}>8</div>
-                            <div className="sb" id='d9' ref={refd9} onClick={()=>{handleclick(refd9)}}>9</div>
-                            <div className="sb" id='d10' ref={refd10} onClick={()=>{handleclick(refd10)}}>10</div>
-                            <div className="sb" id='d11' ref={refd11} onClick={()=>{handleclick(refd11)}}>11</div>
-                            <div className="sb" id='d12' ref={refd12} onClick={()=>{handleclick(refd12)}}>12</div>
-                            <div className="sb" id='d13' ref={refd13} onClick={()=>{handleclick(refd13)}}>13</div>
-                            <div className="sb" id='d14' ref={refd14} onClick={()=>{handleclick(refd14)}}>14</div>
-                            <div className="sb" id='d15' ref={refd15} onClick={()=>{handleclick(refd15)}}>15</div>
-                            <div className="sb" id='d16' ref={refd16} onClick={()=>{handleclick(refd16)}}>16</div>
-                            <div className="sb" id='d17' ref={refd17} onClick={()=>{handleclick(refd17)}}>17</div>
-                            <div className="sb" id='d18' ref={refd18} onClick={()=>{handleclick(refd18)}}>18</div>
-                            <div className="sb" id='d19' ref={refd19} onClick={()=>{handleclick(refd19)}}>19</div>
+                            <div className="sb" id='d8' ref={d8} onClick={()=>{handleclick(d8)}}>8</div>
+                            <div className="sb" id='d9' ref={d9} onClick={()=>{handleclick(d9)}}>9</div>
+                            <div className="sb" id='d10' ref={d10} onClick={()=>{handleclick(d10)}}>10</div>
+                            <div className="sb" id='d11' ref={d11} onClick={()=>{handleclick(d11)}}>11</div>
+                            <div className="sb" id='d12' ref={d12} onClick={()=>{handleclick(d12)}}>12</div>
+                            <div className="sb" id='d13' ref={d13} onClick={()=>{handleclick(d13)}}>13</div>
+                            <div className="sb" id='d14' ref={d14} onClick={()=>{handleclick(d14)}}>14</div>
+                            <div className="sb" id='d15' ref={d15} onClick={()=>{handleclick(d15)}}>15</div>
+                            <div className="sb" id='d16' ref={d16} onClick={()=>{handleclick(d16)}}>16</div>
+                            <div className="sb" id='d17' ref={d17} onClick={()=>{handleclick(d17)}}>17</div>
+                            <div className="sb" id='d18' ref={d18} onClick={()=>{handleclick(d18)}}>18</div>
+                            <div className="sb" id='d19' ref={d19} onClick={()=>{handleclick(d19)}}>19</div>
                             <div className="gapp"></div>
-                            <div className="sb" id='d20' ref={refd20} onClick={()=>{handleclick(refd20)}}>20</div>
-                            <div className="sb" id='d21' ref={refd21} onClick={()=>{handleclick(refd21)}}>21</div>
-                            <div className="sb" id='d22' ref={refd22} onClick={()=>{handleclick(refd22)}}>22</div>
-                            <div className="sb" id='d23' ref={refd23} onClick={()=>{handleclick(refd23)}}>23</div>
-                            <div className="sb" id='d24' ref={refd24} onClick={()=>{handleclick(refd24)}}>24</div>
-                            <div className="sb" id='d25' ref={refd25} onClick={()=>{handleclick(refd25)}}>25</div>
-                            <div className="sb" id='d26' ref={refd26} onClick={()=>{handleclick(refd26)}}>26</div>
+                            <div className="sb" id='d20' ref={d20} onClick={()=>{handleclick(d20)}}>20</div>
+                            <div className="sb" id='d21' ref={d21} onClick={()=>{handleclick(d21)}}>21</div>
+                            <div className="sb" id='d22' ref={d22} onClick={()=>{handleclick(d22)}}>22</div>
+                            <div className="sb" id='d23' ref={d23} onClick={()=>{handleclick(d23)}}>23</div>
+                            <div className="sb" id='d24' ref={d24} onClick={()=>{handleclick(d24)}}>24</div>
+                            <div className="sb" id='d25' ref={d25} onClick={()=>{handleclick(d25)}}>25</div>
+                            <div className="sb" id='d26' ref={d26} onClick={()=>{handleclick(d26)}}>26</div>
                     </div>
 
 

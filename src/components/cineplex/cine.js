@@ -57,7 +57,7 @@ function Cine(){
         setdate2(true)
         setdate3(false)
         const divas = ((din2).toString())+ ", " + ((tareek2).toString())+ ", " + (month)+ ", " + ((year).toString())
-        const shd =  ((tareek1).toString())+ "/" + (mnt)+ "/" + ((year).toString())
+        const shd =  ((tareek2).toString())+ "/" + (mnt)+ "/" + ((year).toString())
         dispatch(setdate(divas))
         dispatch(setshowdate(shd))
     }
@@ -66,7 +66,7 @@ function Cine(){
         setdate2(false)
         setdate3(true)
         const divas = ((din3).toString())+ ", " + ((tareek3).toString())+ ", " + (month)+ ", " + ((year).toString())
-        const shd =  ((tareek1).toString())+ "/" + (mnt)+ "/" + ((year).toString())
+        const shd =  ((tareek3).toString())+ "/" + (mnt)+ "/" + ((year).toString())
         dispatch(setdate(divas))
         dispatch(setshowdate(shd))
         
