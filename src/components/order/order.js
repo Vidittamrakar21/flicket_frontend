@@ -52,7 +52,7 @@ function Order (){
     const butt = useRef()
 
     const getpay = async () =>{
-      const data = await (await axios.post('http://localhost:8080/api/payment/checkout')).data;
+      const data = await (await axios.post('/api/payment/checkout')).data;
       const {order, key} = data;
       
       const options = {
@@ -63,7 +63,7 @@ function Order (){
         description: "Test Transaction",
         image: "https://example.com/your_logo",
         order_id: order.id, 
-        callback_url: "http://localhost:8080/api/payment/verify",
+        callback_url: "/api/payment/verify",
         prefill: {
             name: "Vidit tamrakar",
             email: "vidit.tamrakar@example.com",

@@ -16,10 +16,12 @@ function Success (){
   console.log("ticket", ticket)
   const navigate = useNavigate()
 
-  const [tdata, setdata] = useState('');
+  const [tdata, setdata] = useState("");
+  const [arr, setarr] = useState([]);
+  const [tid, setid] = useState('');
 
   const maketicket = async ()=>{
-    const data  = await (await axios.post('http://localhost:8080/api/ticket/maketicket',{showlocation: ticket.showlocation,
+    const data  = await (await axios.post('/api/ticket/maketicket',{showlocation: ticket.showlocation,
         city: ticket.city,
         name: ticket.name,
         mobileno: ticket.mobileno,
@@ -35,6 +37,8 @@ function Success (){
 
         if(data){
             setdata(data);
+            setarr(data.seatno)
+            setid(data._id)
             console.log("data",data)
         }
         else{
@@ -56,7 +60,7 @@ function Success (){
             <QRCode
             size={256}
             style={{ height: 250, maxWidth: 150, width: 150 }}
-            value={tdata}
+            value={tid}
              viewBox={`0 0 256 256`}
             />
         </div>
@@ -65,10 +69,10 @@ function Success (){
                 <h2 className='ed'>Movie Ticket</h2>
                 <h3 className='ed'>{tdata.moviename}</h3>
                 <h4 className='ed'>{tdata.showlocation}</h4>
-                <h1 className='ed'>{(tdata.seatno).length}</h1>
+                <h1 className='ed'>{arr.length}</h1>
                 <h3 className='ed'>Tickets</h3>
                 <div id="t3" className='ed'>
-                {(tdata.seatno).map((item)=>{
+                {arr.map((item)=>{
                     return(
                         <h4 className='ed'>{item}</h4>
                     )

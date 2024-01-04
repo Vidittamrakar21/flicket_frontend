@@ -30,7 +30,7 @@ function Navbar () {
     const srinp = useRef();
 
     const searchmovie = async () =>{
-        const movie = await (await axios.post('http://localhost:8080/api/movie/search',{searchval: srinp.current?.value})).data;
+        const movie = await (await axios.post('/api/movie/search',{searchval: srinp.current?.value})).data;
         if(movie){
             if(movie.message){
                 if(movie.message === "empty"){

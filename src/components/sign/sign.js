@@ -32,7 +32,7 @@ function Sign (){
         signInWithPopup(auth ,provider).then(async (usercred)=>{
            if(usercred._tokenResponse.emailVerified){
            
-            const user = await (await axios.post('http://localhost:8080/api/user/signup',{email: usercred._tokenResponse.email, name: usercred._tokenResponse.displayName })).data;
+            const user = await (await axios.post('/api/user/signup',{email: usercred._tokenResponse.email, name: usercred._tokenResponse.displayName })).data;
                 if (user){
                     alert(user.message);
                     a.closelog()
@@ -55,7 +55,7 @@ function Sign (){
         else{
             const result = validator.isEmail(`${mail.current?.value}`)
             if(result){
-                const user = await (await axios.post('http://localhost:8080/api/user/signup',{email: mail.current?.value, name: ""})).data;
+                const user = await (await axios.post('/api/user/signup',{email: mail.current?.value, name: ""})).data;
                 if (user){
                     alert(user.message);
                     a.closelog()

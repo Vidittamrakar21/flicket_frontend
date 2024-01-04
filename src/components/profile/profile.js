@@ -44,7 +44,7 @@ function Profile(){
         openpro(false);
         openotify(false);
         opentick(true);
-        const data = await (await axios.get(`http://localhost:8080/api/user/one/${idata.id}`)).data;
+        const data = await (await axios.get(`/api/user/one/${idata.id}`)).data;
         if(data){
             setticket(data.bookings);
         }
@@ -74,10 +74,10 @@ function Profile(){
     const reset = async ()=>{
 
          if(name.current?.value !== "" && mail.current?.value !== "" && num.current?.value !== "" && city.current?.value !== "" ){
-            const namedata = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: idata.id})).data
-            const maildata = await (await axios.patch('http://localhost:8080/api/user/updatemail',{email: mail.current?.value , uid: idata.id})).data
-            const numdata = await (await axios.patch('http://localhost:8080/api/user/updatemobile',{mobileno: num.current?.value , uid: idata.id})).data
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: idata.id})).data
+            const namedata = await (await axios.patch('/api/user/updatename',{name: name.current?.value , uid: idata.id})).data
+            const maildata = await (await axios.patch('/api/user/updatemail',{email: mail.current?.value , uid: idata.id})).data
+            const numdata = await (await axios.patch('/api/user/updatemobile',{mobileno: num.current?.value , uid: idata.id})).data
+            const data = await (await axios.patch('/api/user/updatecity',{city: city.current?.value , uid: idata.id})).data
             if(data && maildata && numdata && namedata){
                 alert(data.message);
                 openpro(true)
@@ -88,8 +88,8 @@ function Profile(){
         }
 
          else if(city.current?.value !== "" && name.current?.value !== ""){
-            const namedata = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: idata.id})).data
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: idata.id})).data
+            const namedata = await (await axios.patch('/api/user/updatename',{name: name.current?.value , uid: idata.id})).data
+            const data = await (await axios.patch('/api/user/updatecity',{city: city.current?.value , uid: idata.id})).data
             if(data && namedata){
                 alert(data.message);
                 openpro(true)
@@ -100,7 +100,7 @@ function Profile(){
         }
 
         else if(name.current?.value !== ""){
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatename',{name: name.current?.value , uid: idata.id})).data
+            const data = await (await axios.patch('/api/user/updatename',{name: name.current?.value , uid: idata.id})).data
             if(data){
                 alert(data.message);
                 openpro(true)
@@ -109,7 +109,7 @@ function Profile(){
             }
         }
         else if(mail.current?.value !== ""){
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatemail',{email: mail.current?.value , uid: idata.id})).data
+            const data = await (await axios.patch('/api/user/updatemail',{email: mail.current?.value , uid: idata.id})).data
             if(data){
                 alert(data.message);
                 openpro(true)
@@ -119,7 +119,7 @@ function Profile(){
 
         }
         else if(num.current?.value !== ""){
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatemobile',{mobileno: num.current?.value , uid: idata.id})).data
+            const data = await (await axios.patch('/api/user/updatemobile',{mobileno: num.current?.value , uid: idata.id})).data
             if(data){
                 alert(data.message);
                 openpro(true)
@@ -129,7 +129,7 @@ function Profile(){
 
         }
         else if(city.current?.value !== ""){
-            const data = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: city.current?.value , uid: idata.id})).data
+            const data = await (await axios.patch('/api/user/updatecity',{city: city.current?.value , uid: idata.id})).data
             if(data){
                 alert(data.message);
                 openpro(true)
@@ -150,7 +150,7 @@ function Profile(){
 
     const deleteaccount = async ()=>{
         if(window.confirm("On deleting your account, all the booking history will also be deleted. Are you sure ,you want to continue !")){
-            const data = await (await axios.delete('http://localhost:8080/api/user/delete',{uid: idata.id})).data
+            const data = await (await axios.delete('/api/user/delete',{uid: idata.id})).data
             if(data.message){
                 alert(data.message)
             }
@@ -158,7 +158,7 @@ function Profile(){
     }
     
     const initial = async ()=>{
-        const data = await (await axios.get('http://localhost:8080/check')).data;
+        const data = await (await axios.get('/check')).data;
         if(data.message=== "declined"){
             a.openlog()
         }
@@ -186,13 +186,17 @@ function Profile(){
 
     const logout = async ()=>{
 
-        const data = await (await axios.post('http://localhost:8080/api/user/logout')).data;
+        const data = await (await axios.post('/api/user/logout')).data;
         if (data.message){
             alert(data.message);
             navigate('/')
         }
 
 
+    }
+
+    const findticket= async (x)=>{
+        navigate(`/ticket/${x}`)
     }
 
     return(
@@ -290,7 +294,9 @@ function Profile(){
 
                 { ticket.length>0? ticket.map((item)=>{
                         return(
-                            <div id="book">
+                            <div id="book" onClick={()=>{
+                                findticket(item)
+                            }}>
                             <h4 id="bid">Booking Id - {item}</h4>
                             
                             </div>

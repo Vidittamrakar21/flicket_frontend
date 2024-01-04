@@ -248,7 +248,7 @@ function Cine(){
     }
 
     const setdata = async () =>{
-        const data = await (await axios.get(`http://localhost:8080/check`)).data;
+        const data = await (await axios.get(`/check`)).data;
         
         if(data.message=== "declined"){
             a.openlog()
@@ -263,7 +263,7 @@ function Cine(){
             if(data.city){
                 dispatch(setcity(data.city))
                 dispatch(setuid(data.id))
-                const movie = await (await axios.post(`http://localhost:8080/api/movie/theat`,{city: data.city, name: name})).data;
+                const movie = await (await axios.post(`/api/movie/theat`,{city: data.city, name: name})).data;
                 if(movie){
                 setmovie(movie)
                   
@@ -272,7 +272,7 @@ function Cine(){
 
             else{
 
-                const movie = await (await axios.post(`http://localhost:8080/api/movie/theat`,{city: "Indore", name: name})).data;
+                const movie = await (await axios.post(`/api/movie/theat`,{city: "Indore", name: name})).data;
                 if(movie){
                     setmovie(movie)
 

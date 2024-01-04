@@ -24,7 +24,7 @@ function Movieban(){
     const {id} = useParams();
 
     const getdata = async()=>{
-        const data = await (await axios.get(`http://localhost:8080/api/movie/getone/${id}`)).data;
+        const data = await (await axios.get(`/api/movie/getone/${id}`)).data;
        if(data){
         setdata(data);
         setcast(data.cast);
@@ -39,7 +39,7 @@ function Movieban(){
     },[])
 
     const handleclick = async () =>{
-        const data = await (await axios.get(`http://localhost:8080/check`)).data;
+        const data = await (await axios.get(`/check`)).data;
         
         if(data.message=== "declined"){
             a.openlog()

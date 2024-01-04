@@ -37,7 +37,7 @@ function Movie (){
     const english = async () =>{
         color1(false)
         color2(true)
-        const data = await (await axios.get(`http://localhost:8080/api/movie/filter/${"english"}`)).data;
+        const data = await (await axios.get(`/api/movie/filter/${"english"}`)).data;
         if(data){
             setdata(data);
             console.log(data)
@@ -57,7 +57,7 @@ function Movie (){
         color7(false)
         color8(false)
         color9(false)
-        const data = await (await axios.get(`http://localhost:8080/api/movie/filter/${"action"}`)).data;
+        const data = await (await axios.get(`/api/movie/filter/${"action"}`)).data;
         if(data){
             setdata(data);
             console.log(data)
@@ -76,7 +76,7 @@ function Movie (){
         color7(false)
         color8(false)
         color9(false)
-        const data = await (await axios.get(`http://localhost:8080/api/movie/filter/${"adventure"}`)).data;
+        const data = await (await axios.get(`/api/movie/filter/${"adventure"}`)).data;
         if(data){
             setdata(data);
             console.log(data)
@@ -95,7 +95,7 @@ function Movie (){
         color7(false)
         color8(false)
         color9(false)
-        const data = await (await axios.get(`http://localhost:8080/api/movie/filter/${"comedy"}`)).data;
+        const data = await (await axios.get(`/api/movie/filter/${"comedy"}`)).data;
         if(data){
             setdata(data);
             console.log(data)
@@ -114,7 +114,7 @@ function Movie (){
         color7(false)
         color8(false)
         color9(false)
-        const data = await (await axios.get(`http://localhost:8080/api/movie/filter/${"drama"}`)).data;
+        const data = await (await axios.get(`/api/movie/filter/${"drama"}`)).data;
         if(data){
             setdata(data);
             console.log(data)
@@ -133,7 +133,7 @@ function Movie (){
         color7(true)
         color8(false)
         color9(false)
-        const data = await (await axios.get(`http://localhost:8080/api/movie/filter/${"fantasy"}`)).data;
+        const data = await (await axios.get(`/api/movie/filter/${"fantasy"}`)).data;
         if(data){
             setdata(data);
             console.log(data)
@@ -152,7 +152,7 @@ function Movie (){
         color7(false)
         color8(true)
         color9(false)
-        const data = await (await axios.get(`http://localhost:8080/api/movie/filter/${"scifi"}`)).data;
+        const data = await (await axios.get(`/api/movie/filter/${"scifi"}`)).data;
         if(data){
             setdata(data);
             console.log(data)
@@ -171,7 +171,7 @@ function Movie (){
         color7(false)
         color8(false)
         color9(true)
-        const data = await (await axios.get(`http://localhost:8080/api/movie/filter/${"thriller"}`)).data;
+        const data = await (await axios.get(`/api/movie/filter/${"thriller"}`)).data;
         if(data){
             setdata(data);
             console.log(data)
@@ -199,7 +199,7 @@ function Movie (){
 
     const [idata, setdata] = useState([]);
     const initiate = async ()=>{
-        const data = await (await axios.get('http://localhost:8080/api/movie/specific')).data;
+        const data = await (await axios.get('/api/movie/specific')).data;
         if(data){
             setdata(data);
             console.log(data)

@@ -17,12 +17,12 @@ function Home (){
 
     const a = useContext(checkcontext);
     const initiate = async ()=>{
-        const data = await (await axios.get('http://localhost:8080/api/movie/specific')).data;
+        const data = await (await axios.get('/api/movie/specific')).data;
         if(data){
             setdata(data);
             console.log(data)
             setload(false)
-            const udata = await (await axios.get('http://localhost:8080/check')).data;
+            const udata = await (await axios.get('/check')).data;
             if(udata.message=== "declined"){
                 a.openlog()
             }
@@ -47,7 +47,7 @@ function Home (){
     const loc = useRef();
 
     const searchlocation = async () =>{
-        const data = await (await axios.get('http://localhost:8080/check')).data;
+        const data = await (await axios.get('/check')).data;
         if(data.message=== "declined"){
             a.openlog()
         }
@@ -60,7 +60,7 @@ function Home (){
             const nstr = str.charAt(0).toUpperCase() + str.slice(1);
             console.log(nstr)
             if(nstr === "Indore" || nstr === "Bhopal" || nstr === "Jabalpur" || nstr === "Gwalior"){
-                const local = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: nstr, uid: data.id })).data;
+                const local = await (await axios.patch('/api/user/updatecity',{city: nstr, uid: data.id })).data;
                 if(local){
                   
                     a.setcity(nstr)
@@ -95,7 +95,7 @@ function Home (){
         if(data){
             console.log(data);
             if(data.city === "Indore" || data.city === "Bhopal" || data.city === "Jabalpur" || data.city === "Gwalior"){
-                const local = await (await axios.patch('http://localhost:8080/api/user/updatecity',{city: data.city, uid: data.id })).data;
+                const local = await (await axios.patch('/api/user/updatecity',{city: data.city, uid: data.id })).data;
                 if(local){
                    
                     a.setcity(data.city)

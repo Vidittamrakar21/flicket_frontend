@@ -525,7 +525,7 @@ function Seat(){
 
         const checkseat = async ()=>{
                 if(ticket){
-                        const data = await (await axios.post('http://localhost:8080/api/ticket/getticket',{showlocation: ticket.showlocation, city: ticket.city ,  showtime : ticket.showtime ,showdate: ticket.showdate, moviename: ticket.moviename})).data;
+                        const data = await (await axios.post('/api/ticket/getticket',{showlocation: ticket.showlocation, city: ticket.city ,  showtime : ticket.showtime ,showdate: ticket.showdate, moviename: ticket.moviename})).data;
                 if(data){
                         console.log("data",data)
                         fill(data.seatno)
